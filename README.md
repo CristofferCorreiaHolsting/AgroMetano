@@ -163,7 +163,7 @@ Por ser um arquivo HTML único e autocontido, basta abrir no navegador:
 # Opção 1: Abrir diretamente
 Clique duas vezes em AgroMetano.html
 # Opção 2: baixar
-baixe o arquivo em sua versão raw
+baixe o arquivo clicando na setinha direcionada para baixo.
 
 ```
 
