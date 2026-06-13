@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Efeitos do Metano</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+  <div class="logo">AgroMetano</div>
+  <button class="btn-cadastrar" onclick="openModal()">Login</button>
+</nav>
+<!-- ═══════════════════════════════════════
+      HERO 
+════════════════════════════════════════ -->
+<section class="hero">
+  <!-- Badge de status ao vivo -->
+  <div class="hero-badge">
+    <span class="hero-badge-dot"></span>
+    Dados atualizados · SEEG 2023
+  </div>
+  <div class="hero-split">
+    <!-- Coluna esquerda: título + desc + CTAs -->
+    <div>
+      <div class="tag">Agronegócio &amp; Clima</div>
+      <h1>Efeitos do<br><em>Metano</em><br>no Campo</h1>
+      <!-- Alerta contextual logo abaixo do título -->
+      <div class="hero-alert">
+        <span class="hero-alert-icon">⚠</span>
+        <span>O Brasil é o <strong>4º maior emissor de metano do mundo</strong>. Mais de <strong>73% das emissões</strong> vêm do agronegócio — e você pode monitorar tudo aqui, por estado, por setor e ao longo dos anos.</span>
+      </div>
+      <p class="hero-desc">Plataforma de monitoramento e análise dos impactos das emissões de CH₄ da pecuária e agricultura brasileira. Explore dados interativos, compare estados e entenda as estratégias de mitigação disponíveis.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="openSignupModal()">Criar conta gratuita</button>
+        <button class="btn-outline" onclick="const el=document.getElementById('scroll-cue');const y=el.getBoundingClientRect().top+window.scrollY-80;window.scrollTo({top:y,behavior:'smooth'})">Explorar dados →</button>
+      </div>
+      <!-- Pílulas de funcionalidades -->
+      <div class="feature-trail">
+        <span class="feature-pill"><span class="feature-pill-dot"></span>Mapa por estado</span>
+        <span class="feature-pill"><span class="feature-pill-dot"></span>Comparador de regiões</span>
+        <span class="feature-pill"><span class="feature-pill-dot"></span>Histórico 2010–2023</span>
+        <span class="feature-pill"><span class="feature-pill-dot"></span>Área educativa</span>
+        <span class="feature-pill"><span class="feature-pill-dot"></span>Estratégias de mitigação</span>
+        <span class="feature-pill"><span class="feature-pill-dot"></span>Painel de Emissões</span>
+        <span class="feature-pill"><span class="feature-pill-dot"></span>Estimativa em tempo real</span>
+        <span class="feature-pill"><span class="feature-pill-dot"></span>Soluções sustentáveis</span>
+        <span class="feature-pill"><span class="feature-pill-dot"></span>Principais fontes</span>
+      </div>
+    </div>
+    <!-- Coluna direita: mini dashboard de destaque -->
+    <div class="hero-right">
+      <div class="hero-card">
+        <div class="hero-card-top">
+          <span class="hero-card-label">Potencial de aquecimento</span>
+          <span class="hero-card-val">28×</span>
+        </div>
+        <div class="hero-card-desc">O CH₄ aquece o planeta 28× mais que o CO₂ em 100 anos — e até 80× em 20 anos.</div>
+        <div class="hero-card-bar"><div class="hero-card-bar-fill" style="width:100%"></div></div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-top">
+          <span class="hero-card-label">Emissões nacionais · 2023</span>
+          <span class="hero-card-val">74 Mt</span>
+        </div>
+        <div class="hero-card-desc">Megatoneladas de CH₄ emitidas pelo Brasil por ano — com crescimento contínuo desde 2010.</div>
+        <div class="hero-card-bar"><div class="hero-card-bar-fill" style="width:82%"></div></div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-top">
+          <span class="hero-card-label">Origem agropecuária</span>
+          <span class="hero-card-val">73,4%</span>
+        </div>
+        <div class="hero-card-desc">Fermentação entérica bovina é a maior fonte, seguida de arrozais alagados e dejetos de suínos.</div>
+        <div class="hero-card-bar"><div class="hero-card-bar-fill" style="width:73%"></div></div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-top">
+          <span class="hero-card-label">Tempo de vida na atmosfera</span>
+          <span class="hero-card-val">12 anos</span>
+        </div>
+        <div class="hero-card-desc">Reduzir CH₄ agora gera efeito climático rápido e mensurável — diferente do CO₂, que persiste séculos.</div>
+        <div class="hero-card-bar"><div class="hero-card-bar-fill" style="width:45%"></div></div>
+      </div>
+    </div><!-- /hero-right -->
+  </div><!-- /hero-split -->
+  <div id="scroll-cue" class="scroll-cue">
+    <span>Explorar</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+<!-- ═══════════════════════════════════════
+      STATS  (4 colunas)
+════════════════════════════════════════ -->
+<div id="stats-enhanced" class="stats-enhanced">
+  <div class="stats-inner">
+    <div class="stat-enh">
+      <div class="stat-enh-num">28×</div>
+      <div class="stat-enh-label">Potencial de aquecimento</div>
+      <div class="stat-enh-sub">O metano aquece o planeta 28× mais que o CO₂ em 100 anos.<br>No horizonte de 20 anos, esse potencial sobe para até 80×.</div>
+    </div>
+    <div class="stat-enh">
+      <div class="stat-enh-num">74 Mt</div>
+      <div class="stat-enh-label">Emitidas/ano no Brasil</div>
+      <div class="stat-enh-sub">Megatoneladas de CH₄ emitidas pelo Brasil por ano em 2023.<br>Equivale a retirar 65 milhões de carros das ruas de uma vez.</div>
+    </div>
+    <div class="stat-enh">
+      <div class="stat-enh-num">73,4%</div>
+      <div class="stat-enh-label">Origem agropecuária</div>
+      <div class="stat-enh-sub">Mais de 73% das emissões de metano no Brasil vêm do campo.<br>Bovinos respondem por ~60% desse total via fermentação entérica.</div>
+    </div>
+    <div class="stat-enh">
+      <div class="stat-enh-num">-30%</div>
+      <div class="stat-enh-label">Redução possível hoje</div>
+      <div class="stat-enh-sub">Redução alcançável com aditivos alimentares e manejo de pastagens.<br>Tecnologias já disponíveis no mercado, sem perda de produtividade.</div>
+    </div>
+  </div>
+<!-- ══════════════════════════════════════════
+      ÁREA EDUCATIVA
+══════════════════════════════════════════ -->
+<section id="educativa" style="position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:0 3rem 5rem;">
+  <!-- Header -->
+  <div style="margin-bottom:3rem;">
+    <div class="tag" style="margin-bottom:0.8rem;">Área Educativa</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#f0fdf4;margin-bottom:0.6rem;">Entenda o Metano</h2>
+    <p style="font-size:15px;color:#6b7c6b;max-width:580px;line-height:1.75;">Do átomo à atmosfera — o que é o CH₄, como ele esquenta o planeta e o que podemos fazer para reduzir suas emissões.</p>
+  </div>
+  <!-- ABAS de navegação -->
+  <div style="display:flex;gap:0;border:1.5px solid rgba(34,197,94,0.18);border-radius:6px;overflow:hidden;margin-bottom:2.5rem;background:#0a130a;">
+    <button class="edu-tab active" data-tab="oque" onclick="switchTab('oque',this)" style="flex:1;padding:0.85rem 1rem;background:rgba(34,197,94,0.12);border:none;border-right:1px solid rgba(34,197,94,0.15);color:#22c55e;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;transition:all 0.2s;">O que é CH₄</button>
+    <button class="edu-tab" data-tab="impactos" onclick="switchTab('impactos',this)" style="flex:1;padding:0.85rem 1rem;background:transparent;border:none;border-right:1px solid rgba(34,197,94,0.15);color:#6b7c6b;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;transition:all 0.2s;">Impactos</button>
+    <button class="edu-tab" data-tab="mitigacao" onclick="switchTab('mitigacao',this)" style="flex:1;padding:0.85rem 1rem;background:transparent;border:none;color:#6b7c6b;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;transition:all 0.2s;">Mitigação</button>
+  </div>
+  <!-- ───────────── ABA 1: O que é CH₄ ───────────── -->
+  <div id="edu-tab-oque" class="edu-panel" style="display:block;">
+    <!-- Molécula SVG + intro -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;margin-bottom:2.5rem;">
+      <div>
+        <div style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:#f0fdf4;margin-bottom:1rem;line-height:1.3;">Um carbono, quatro hidrogênios — e um enorme poder de aquecimento</div>
+        <p style="font-size:14px;color:#9ab89a;line-height:1.85;margin-bottom:0.9rem;">O metano (CH₄) é o gás de efeito estufa mais simples depois do CO₂, mas seu <strong style="color:#e8f5e9;">poder de aquecimento global é 28 vezes maior</strong> do que o dióxido de carbono num horizonte de 100 anos — e até 80× em 20 anos.</p>
+        <p style="font-size:14px;color:#9ab89a;line-height:1.85;margin-bottom:0.9rem;">Ele fica na atmosfera por apenas <strong style="color:#e8f5e9;">12 anos</strong> (enquanto o CO₂ pode durar séculos), o que significa que reduzir suas emissões agora produz efeito climático rápido e mensurável.</p>
+        <p style="font-size:14px;color:#9ab89a;line-height:1.85;">No Brasil, <strong style="color:#22c55e;">73,4%</strong> do metano vem do agronegócio — principalmente da digestão dos bovinos (fermentação entérica) e dos arrozais alagados.</p>
+      </div>
+      <!-- Infográfico: molécula animada -->
+      <div style="display:flex;justify-content:center;align-items:center;padding:1.5rem;">
+        <svg viewBox="0 0 260 260" width="260" height="260" style="overflow:visible;">
+          <defs>
+            <radialGradient id="cGrad" cx="50%" cy="40%" r="50%">
+              <stop offset="0%" stop-color="#86efac"/><stop offset="100%" stop-color="#15803d"/>
+            </radialGradient>
+            <radialGradient id="hGrad" cx="50%" cy="40%" r="50%">
+              <stop offset="0%" stop-color="#e8f5e9"/><stop offset="100%" stop-color="#6b7c6b"/>
+            </radialGradient>
+            <filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <!-- Bonds -->
+          <g stroke="rgba(74,222,128,0.55)" stroke-width="3.5" stroke-linecap="round">
+            <line x1="130" y1="130" x2="130" y2="60"/>
+            <line x1="130" y1="130" x2="60"  y2="165"/>
+            <line x1="130" y1="130" x2="200" y2="165"/>
+            <line x1="130" y1="130" x2="130" y2="205"/>
+          </g>
+          <!-- H atoms -->
+          <circle cx="130" cy="52"  r="22" fill="url(#hGrad)" filter="url(#glow)" opacity="0.9"><animate attributeName="opacity" values="0.9;1;0.9" dur="3s" repeatCount="indefinite"/></circle>
+          <circle cx="52"  cy="170" r="22" fill="url(#hGrad)" filter="url(#glow)" opacity="0.9"><animate attributeName="opacity" values="0.9;1;0.9" dur="3.4s" repeatCount="indefinite"/></circle>
+          <circle cx="208" cy="170" r="22" fill="url(#hGrad)" filter="url(#glow)" opacity="0.9"><animate attributeName="opacity" values="0.9;1;0.9" dur="2.7s" repeatCount="indefinite"/></circle>
+          <circle cx="130" cy="213" r="22" fill="url(#hGrad)" filter="url(#glow)" opacity="0.9"><animate attributeName="opacity" values="0.9;1;0.9" dur="3.8s" repeatCount="indefinite"/></circle>
+          <!-- H labels -->
+          <text x="130" y="56"  text-anchor="middle" dominant-baseline="middle" font-size="14" font-weight="700" font-family="DM Sans,sans-serif" fill="#050a05">H</text>
+          <text x="52"  y="174" text-anchor="middle" dominant-baseline="middle" font-size="14" font-weight="700" font-family="DM Sans,sans-serif" fill="#050a05">H</text>
+          <text x="208" y="174" text-anchor="middle" dominant-baseline="middle" font-size="14" font-weight="700" font-family="DM Sans,sans-serif" fill="#050a05">H</text>
+          <text x="130" y="217" text-anchor="middle" dominant-baseline="middle" font-size="14" font-weight="700" font-family="DM Sans,sans-serif" fill="#050a05">H</text>
+          <!-- C atom central -->
+          <circle cx="130" cy="130" r="30" fill="url(#cGrad)" filter="url(#glow)"><animate attributeName="r" values="30;32;30" dur="2.5s" repeatCount="indefinite"/></circle>
+          <text x="130" y="134" text-anchor="middle" dominant-baseline="middle" font-size="16" font-weight="900" font-family="DM Sans,sans-serif" fill="#050a05">C</text>
+          <!-- Label -->
+          <text x="130" y="248" text-anchor="middle" font-size="13" font-weight="700" font-family="DM Mono,monospace" fill="#4ade80" letter-spacing="0.15em">CH₄ — METANO</text>
+        </svg>
+      </div>
+    </div>
+    <!-- Infográfico: de onde vem o metano -->
+    <div style="background:#0d150d;border:1.5px solid rgba(34,197,94,0.12);border-radius:6px;padding:1.75rem 2rem;margin-bottom:1.5rem;">
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.18em;color:#6b7c6b;margin-bottom:1.4rem;">De onde vem o metano no Brasil?</div>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <!-- Fonte 1 -->
+        <div style="display:grid;grid-template-columns:28px 1fr 52px;align-items:center;gap:14px;">
+          <div style="font-size:20px;text-align:center;">🐄</div>
+          <div>
+            <div style="font-size:13px;color:#e8f5e9;font-weight:600;margin-bottom:4px;">Fermentação entérica (bovinos)</div>
+            <div style="height:8px;background:rgba(34,197,94,0.08);border-radius:999px;overflow:hidden;"><div style="width:65%;height:100%;background:linear-gradient(90deg,#22c55e,#4ade80);border-radius:999px;"></div></div>
+          </div>
+          <div style="font-family:'DM Mono',monospace;font-size:13px;color:#22c55e;font-weight:700;text-align:right;">65,7%</div>
+        </div>
+        <!-- Fonte 2 -->
+        <div style="display:grid;grid-template-columns:28px 1fr 52px;align-items:center;gap:14px;">
+          <div style="font-size:20px;text-align:center;">🗑️</div>
+          <div>
+            <div style="font-size:13px;color:#e8f5e9;font-weight:600;margin-bottom:4px;">Resíduos e aterros sanitários</div>
+            <div style="height:8px;background:rgba(34,197,94,0.08);border-radius:999px;overflow:hidden;"><div style="width:12.3%;height:100%;background:linear-gradient(90deg,#f59e0b,#fbbf24);border-radius:999px;"></div></div>
+          </div>
+          <div style="font-family:'DM Mono',monospace;font-size:13px;color:#f59e0b;font-weight:700;text-align:right;">12,3%</div>
+        </div>
+        <!-- Fonte 3 -->
+        <div style="display:grid;grid-template-columns:28px 1fr 52px;align-items:center;gap:14px;">
+          <div style="font-size:20px;text-align:center;">⚡</div>
+          <div>
+            <div style="font-size:13px;color:#e8f5e9;font-weight:600;margin-bottom:4px;">Setor de energia (combustíveis)</div>
+            <div style="height:8px;background:rgba(34,197,94,0.08);border-radius:999px;overflow:hidden;"><div style="width:8.5%;height:100%;background:linear-gradient(90deg,#3b82f6,#60a5fa);border-radius:999px;"></div></div>
+          </div>
+          <div style="font-family:'DM Mono',monospace;font-size:13px;color:#3b82f6;font-weight:700;text-align:right;">8,5%</div>
+        </div>
+        <!-- Fonte 4 -->
+        <div style="display:grid;grid-template-columns:28px 1fr 52px;align-items:center;gap:14px;">
+          <div style="font-size:20px;text-align:center;">🐖</div>
+          <div>
+            <div style="font-size:13px;color:#e8f5e9;font-weight:600;margin-bottom:4px;">Dejetos animais (suínos/aves)</div>
+            <div style="height:8px;background:rgba(34,197,94,0.08);border-radius:999px;overflow:hidden;"><div style="width:7.9%;height:100%;background:linear-gradient(90deg,#8b5cf6,#a78bfa);border-radius:999px;"></div></div>
+          </div>
+          <div style="font-family:'DM Mono',monospace;font-size:13px;color:#8b5cf6;font-weight:700;text-align:right;">7,9%</div>
+        </div>
+        <!-- Fonte 5 -->
+        <div style="display:grid;grid-template-columns:28px 1fr 52px;align-items:center;gap:14px;">
+          <div style="font-size:20px;text-align:center;">🌾</div>
+          <div>
+            <div style="font-size:13px;color:#e8f5e9;font-weight:600;margin-bottom:4px;">Queima de biomassa / outros</div>
+            <div style="height:8px;background:rgba(34,197,94,0.08);border-radius:999px;overflow:hidden;"><div style="width:5.6%;height:100%;background:linear-gradient(90deg,#ef4444,#f87171);border-radius:999px;"></div></div>
+          </div>
+          <div style="font-family:'DM Mono',monospace;font-size:13px;color:#ef4444;font-weight:700;text-align:right;">5,6%</div>
+        </div>
+      </div>
+    </div>
+    <!-- ── EXPLICAÇÃO GWP ── -->
+    <div style="background:#071209;border:1.5px solid rgba(34,197,94,0.15);border-radius:6px;padding:1.75rem 2rem;position:relative;overflow:hidden;margin-bottom:1.5rem;">
+      <div style="position:absolute;top:-30px;right:-30px;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,rgba(34,197,94,0.07) 0%,transparent 70%);pointer-events:none;"></div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;">
+        <div style="font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:#f0fdf4;">O que é GWP — Potencial de Aquecimento Global?</div>
+      </div>
+      <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#22c55e;margin-bottom:1.1rem;">Global Warming Potential · índice do IPCC</div>
+      <p style="font-size:14px;color:#9ab89a;line-height:1.85;margin-bottom:1.25rem;">O <strong style="color:#e8f5e9;">GWP</strong> é uma escala criada pelo IPCC para comparar o poder de aquecimento de diferentes gases. O <strong style="color:#e8f5e9;">CO₂ é sempre a referência = 1</strong>. Se um gás tem GWP 28, significa que <strong style="color:#4ade80;">1 tonelada desse gás aquece tanto quanto 28 t de CO₂</strong> em 100 anos.</p>
+      <!-- Analogia visual -->
+      <div style="background:rgba(34,197,94,0.04);border:1px solid rgba(34,197,94,0.1);border-radius:6px;padding:1rem 1.25rem;margin-bottom:1.25rem;">
+        <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.15em;color:#6b7c6b;margin-bottom:0.7rem;">Comparativo GWP-100 · fonte: IPCC AR6</div>
+        <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+          <div style="text-align:center;min-width:70px;"><div style="font-family:'DM Mono',monospace;font-size:11px;color:#6b7c6b;margin-top:4px;">CO₂</div><div style="font-size:17px;font-weight:700;color:#9ab89a;">1×</div></div>
+          <div style="color:#4a6a4a;font-size:1.2rem;">·</div>
+          <div style="text-align:center;min-width:70px;"><div style="font-family:'DM Mono',monospace;font-size:11px;color:#4ade80;margin-top:4px;">CH₄</div><div style="font-size:17px;font-weight:700;color:#22c55e;">28×</div></div>
+          <div style="color:#4a6a4a;font-size:1.2rem;">·</div>
+          <div style="text-align:center;min-width:70px;"><div style="font-family:'DM Mono',monospace;font-size:11px;color:#f59e0b;margin-top:4px;">N₂O</div><div style="font-size:17px;font-weight:700;color:#f59e0b;">265×</div></div>
+          <div style="color:#4a6a4a;font-size:1.2rem;">·</div>
+          <div style="text-align:center;min-width:70px;"><div style="font-family:'DM Mono',monospace;font-size:11px;color:#f87171;margin-top:4px;">SF₆</div><div style="font-size:17px;font-weight:700;color:#ef4444;">23.900×</div></div>
+        </div>
+      </div>
+      <!-- Horizonte temporal -->
+      <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:1.25rem;">
+        <div style="font-size:12px;color:#6b7c6b;margin-bottom:2px;">O GWP varia com o horizonte: o CH₄ some em ~12 anos, mas é devastador no curto prazo.</div>
+        <div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:3px;"><span style="font-size:12px;color:#e8f5e9;">CH₄ · GWP-20 (curto prazo)</span><span style="font-family:'DM Mono',monospace;font-size:12px;color:#f87171;font-weight:700;">80×</span></div>
+          <div style="height:7px;background:rgba(34,197,94,0.06);border-radius:999px;overflow:hidden;"><div style="width:100%;height:100%;background:linear-gradient(90deg,#f87171,#fca5a5);border-radius:999px;animation:gwpGrow 1.2s ease both;"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:3px;"><span style="font-size:12px;color:#e8f5e9;">CH₄ · GWP-100 (padrão IPCC)</span><span style="font-family:'DM Mono',monospace;font-size:12px;color:#22c55e;font-weight:700;">28×</span></div>
+          <div style="height:7px;background:rgba(34,197,94,0.06);border-radius:999px;overflow:hidden;"><div style="width:35%;height:100%;background:linear-gradient(90deg,#22c55e,#4ade80);border-radius:999px;animation:gwpGrow 1.4s ease both;"></div></div>
+        </div>
+      </div>
+      <div style="background:rgba(34,197,94,0.05);border-left:3px solid #22c55e;padding:0.8rem 1rem;border-radius:0 4px 4px 0;">
+        <div style="font-size:12px;font-weight:600;color:#4ade80;margin-bottom:3px;">Por que isso importa para o Brasil?</div>
+        <p style="font-size:13px;color:#9ab89a;line-height:1.7;margin:0;">Como o CH₄ desaparece rápido, <strong style="color:#e8f5e9;">cortar metano hoje gera resultado em anos, não séculos</strong> — por isso metas de 2030 focam tanto nele.</p>
+      </div>
+    </div>
+    <!-- ── GWP: COMPARATIVO CH₄ vs CO₂ (inline) ── -->
+    <div style="margin-bottom:1.5rem;">
+      <div style="margin-bottom:1.2rem;">
+        <div style="display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:0.25em;text-transform:uppercase;color:#22c55e;font-weight:500;margin-bottom:0.8rem;">
+          <span style="display:block;width:24px;height:1.5px;background:#22c55e;"></span>
+          Potencial de Aquecimento Global
+        </div>
+        <h2 style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#f0fdf4;">CH₄ vs CO₂ — GWP comparado</h2>
+        <p style="font-size:14px;color:#6b7c6b;margin-top:6px;line-height:1.7;">O GWP (Global Warming Potential) mede o poder de aquecimento de um gás em relação ao CO₂, usado como referência (1×).</p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div style="background:#071209;border:1.5px solid rgba(34,197,94,0.25);border-radius:6px;padding:1.4rem 1.6rem;">
+          <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.2em;color:#22c55e;margin-bottom:0.9rem;font-weight:600;">CH₄ — Metano</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;justify-content:space-between;border-bottom:1px solid rgba(34,197,94,0.07);padding-bottom:8px;font-size:13px;"><span style="color:#9ab89a;">Fórmula</span><span style="color:#e8f5e9;font-family:'DM Mono',monospace;font-weight:600;">CH₄</span></div>
+            <div style="display:flex;justify-content:space-between;border-bottom:1px solid rgba(34,197,94,0.07);padding-bottom:8px;font-size:13px;"><span style="color:#9ab89a;">GWP 100 anos</span><span style="color:#22c55e;font-weight:700;font-family:'DM Mono',monospace;font-size:15px;">28×</span></div>
+            <div style="display:flex;justify-content:space-between;border-bottom:1px solid rgba(34,197,94,0.07);padding-bottom:8px;font-size:13px;"><span style="color:#9ab89a;">GWP 20 anos</span><span style="color:#4ade80;font-weight:700;font-family:'DM Mono',monospace;font-size:15px;">80×</span></div>
+            <div style="display:flex;justify-content:space-between;border-bottom:1px solid rgba(34,197,94,0.07);padding-bottom:8px;font-size:13px;"><span style="color:#9ab89a;">Permanência</span><span style="color:#e8f5e9;font-family:'DM Mono',monospace;font-weight:600;">~12 anos</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;"><span style="color:#9ab89a;">Origem agro BR</span><span style="color:#22c55e;font-weight:700;font-family:'DM Mono',monospace;">73,4%</span></div>
+          </div>
+        </div>
+        <div style="background:#071209;border:1.5px solid rgba(100,150,100,0.2);border-radius:6px;padding:1.4rem 1.6rem;">
+          <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.2em;color:#6b7c6b;margin-bottom:0.9rem;font-weight:600;">CO₂ — Dióxido de Carbono</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,0.05);padding-bottom:8px;font-size:13px;"><span style="color:#9ab89a;">Fórmula</span><span style="color:#e8f5e9;font-family:'DM Mono',monospace;font-weight:600;">CO₂</span></div>
+            <div style="display:flex;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,0.05);padding-bottom:8px;font-size:13px;"><span style="color:#9ab89a;">GWP 100 anos</span><span style="color:#9ab89a;font-weight:700;font-family:'DM Mono',monospace;font-size:15px;">1× (base)</span></div>
+            <div style="display:flex;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,0.05);padding-bottom:8px;font-size:13px;"><span style="color:#9ab89a;">GWP 20 anos</span><span style="color:#9ab89a;font-weight:700;font-family:'DM Mono',monospace;font-size:15px;">1×</span></div>
+            <div style="display:flex;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,0.05);padding-bottom:8px;font-size:13px;"><span style="color:#9ab89a;">Permanência</span><span style="color:#e8f5e9;font-family:'DM Mono',monospace;font-weight:600;">100–1000 anos</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;"><span style="color:#9ab89a;">Origem agro BR</span><span style="color:#9ab89a;font-family:'DM Mono',monospace;font-weight:600;">~30%</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="video-card" style="padding:0 0 2rem;"> <a class="video-link" href="https://youtu.be/LtOLXFwChlA" target="_blank"> <div class="video-thumb"> <img class="thumb-img" src="https://img.youtube.com/vi/LtOLXFwChlA/hqdefault.jpg" alt="Thumbnail do vídeo" onerror="this.style.display='none'" /> <div class="play-btn"> <div class="play-circle"> <svg width="16" height="16" viewBox="0 0 16 16" fill="none"> <path d="M5 3l9 5-9 5V3z" fill="#050a05"/> </svg> </div> </div> </div> <div class="video-info"> <div class="video-label">Vídeo — YouTube</div> <div class="video-title">Metano e Gás Carbônico: qual é o mais prejudicial ao clima?</div> <div class="video-desc">Entenda as diferenças entre os dois gases de efeito estufa e qual deles representa maior risco para o equilíbrio climático do planeta.</div> </div> <div class="video-cta"> Assistir no YouTube <svg width="16" height="16" viewBox="0 0 16 16" fill="none"> <path d="M3 8h10M9 4l4 4-4 4" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> </svg> </div> </a> </div>
+    <!-- ── PRINCIPAIS FONTES ── -->
+    <div style="margin-top:2rem;">
+      <div style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#22c55e;margin-bottom:1rem;font-weight:500;">Principais Fontes de Emissão</div>
+      <div class="cards" style="grid-template-columns:repeat(3,1fr);">
+        <div class="card">
+          <div class="card-title">Fermentação Entérica</div>
+          <div class="card-text">Principal fonte de CH₄ no Brasil, responsável por ~60% das emissões agropecuárias. Ocorre no sistema digestivo de ruminantes — bovinos, bubalinos, ovinos e caprinos —, onde bactérias metanogênicas decompõem a fibra vegetal e liberam metano diretamente pelo ar expirado e por arroto.</div>
+        </div>
+        <div class="card">
+          <div class="card-title">Dejetos Animais</div>
+          <div class="card-text">Fezes e urina de bovinos, suínos e aves, quando armazenadas em lagoas ou esterqueiras sem cobertura, decompõem-se em ambiente anaeróbico e liberam grandes quantidades de CH₄. A suinocultura industrial é a subfontes mais crítica, pois os dejetos ficam em lagoas por longos períodos.</div>
+        </div>
+        <div class="card">
+          <div class="card-title">Cultivo de Arroz Alagado</div>
+          <div class="card-text">Campos de arroz inundados criam ambiente sem oxigênio no solo, onde arqueas metanogênicas produzem CH₄ a partir da matéria orgânica. O gás sobe pela água e pelas plantas até a atmosfera. O Brasil é o maior produtor de arroz irrigado da América do Sul, com destaque para RS e SC.</div>
+        </div>
+        <div class="card">
+          <div class="card-title">Queima de Resíduos Agrícolas</div>
+          <div class="card-text">A queima de palha, bagaço de cana, restos de colheita e vegetação para abertura de área libera CH₄ em combustão incompleta. No Brasil, é prática ainda comum no Cerrado e na Amazônia, associada à expansão de pastagens e à colheita manual da cana-de-açúcar em regiões mais antigas.</div>
+        </div>
+        <div class="card">
+          <div class="card-title">Solos Orgânicos e Várzeas</div>
+          <div class="card-text">Solos ricos em matéria orgânica em áreas úmidas e várzeas naturalmente emitem CH₄ quando perturbados pelo cultivo ou pela pecuária. O manejo inadequado de solos hidromórficos — comuns no Pantanal e na Amazônia — acelera a decomposição anaeróbica e amplia as emissões difusas.</div>
+        </div>
+        <div class="card">
+          <div class="card-title">Biodigestão sem Captura</div>
+          <div class="card-text">Resíduos agroindustriais — como vinhaça de usinas de cana, efluentes de frigoríficos e lodo de laticínios — liberam CH₄ durante a decomposição em lagoas abertas. Quando não há captura e queima do biogás, todo esse metano vai direto para a atmosfera, representando uma oportunidade perdida de energia limpa.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ───────────── ABA 2: Impactos ───────────── -->
+  <div id="edu-tab-impactos" class="edu-panel" style="display:none;">
+    <!-- Linha do tempo / efeito cascata -->
+    <div style="margin-bottom:2rem;">
+      <div style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:#f0fdf4;margin-bottom:0.5rem;">Como o metano afeta o planeta — efeito em cascata</div>
+      <p style="font-size:14px;color:#6b7c6b;line-height:1.75;margin-bottom:1.5rem;">Cada molécula de CH₄ absorve calor infravermelho e desencadeia uma série de consequências interligadas.</p>
+      <!-- Cards cascata -->
+      <div style="position:relative;">
+        <!-- Linha conectora -->
+        <div style="position:absolute;left:28px;top:40px;bottom:40px;width:2px;background:linear-gradient(to bottom,#22c55e,#4ade80,#86efac,#d9f99d,#ef4444);opacity:0.4;"></div>
+        <div style="display:flex;flex-direction:column;gap:1px;">
+          <div class="cascade-card" style="display:flex;gap:1.2rem;align-items:flex-start;background:#0d150d;border:1px solid rgba(34,197,94,0.13);border-radius:6px;padding:1.2rem 1.4rem;transition:border-color 0.2s;" onmouseenter="this.style.borderColor='rgba(34,197,94,0.35)'" onmouseleave="this.style.borderColor='rgba(34,197,94,0.13)'">
+            <div style="flex-shrink:0;width:36px;height:36px;border-radius:50%;background:rgba(34,197,94,0.12);border:1.5px solid rgba(34,197,94,0.35);display:flex;align-items:center;justify-content:center;font-size:16px;margin-top:2px;">☀️</div>
+            <div>
+              <div style="font-size:14px;font-weight:600;color:#e8f5e9;margin-bottom:4px;">Absorção de calor na atmosfera</div>
+              <div style="font-size:13px;color:#6b7c6b;line-height:1.7;">O metano captura a radiação infravermelha emitida pela superfície terrestre, impedindo que ela escape para o espaço. Seu poder de absorção por molécula é <strong style="color:#4ade80;">28 vezes maior</strong> que o do CO₂ em 100 anos.</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;padding:0 0 0 1.2rem;"><div style="width:36px;text-align:center;color:#4ade80;font-size:18px;">↓</div></div>
+          <div class="cascade-card" style="display:flex;gap:1.2rem;align-items:flex-start;background:#0d150d;border:1px solid rgba(74,222,128,0.13);border-radius:6px;padding:1.2rem 1.4rem;transition:border-color 0.2s;" onmouseenter="this.style.borderColor='rgba(74,222,128,0.35)'" onmouseleave="this.style.borderColor='rgba(74,222,128,0.13)'">
+            <div style="flex-shrink:0;width:36px;height:36px;border-radius:50%;background:rgba(74,222,128,0.1);border:1.5px solid rgba(74,222,128,0.3);display:flex;align-items:center;justify-content:center;font-size:16px;margin-top:2px;">🌡️</div>
+            <div>
+              <div style="font-size:14px;font-weight:600;color:#e8f5e9;margin-bottom:4px;">Aumento da temperatura global</div>
+              <div style="font-size:13px;color:#6b7c6b;line-height:1.7;">O CH₄ responde por cerca de <strong style="color:#4ade80;">30% do aquecimento</strong> registrado desde a Revolução Industrial. A temperatura média global subiu 1,1°C — e o metano é um dos principais responsáveis pela aceleração recente.</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;padding:0 0 0 1.2rem;"><div style="width:36px;text-align:center;color:#86efac;font-size:18px;">↓</div></div>
+          <div class="cascade-card" style="display:flex;gap:1.2rem;align-items:flex-start;background:#0d150d;border:1px solid rgba(134,239,172,0.13);border-radius:6px;padding:1.2rem 1.4rem;transition:border-color 0.2s;" onmouseenter="this.style.borderColor='rgba(134,239,172,0.35)'" onmouseleave="this.style.borderColor='rgba(134,239,172,0.13)'">
+            <div style="flex-shrink:0;width:36px;height:36px;border-radius:50%;background:rgba(134,239,172,0.08);border:1.5px solid rgba(134,239,172,0.25);display:flex;align-items:center;justify-content:center;font-size:16px;margin-top:2px;">💧</div>
+            <div>
+              <div style="font-size:14px;font-weight:600;color:#e8f5e9;margin-bottom:4px;">Alteração do ciclo hidrológico</div>
+              <div style="font-size:13px;color:#6b7c6b;line-height:1.7;">Temperaturas mais altas alteram a evaporação e a precipitação. No Brasil, isso se traduz em <strong style="color:#86efac;">secas mais severas no Cerrado</strong> e chuvas mais intensas no Sul — comprometendo pastagens, safras e reservatórios.</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;padding:0 0 0 1.2rem;"><div style="width:36px;text-align:center;color:#a3e635;font-size:18px;">↓</div></div>
+          <div class="cascade-card" style="display:flex;gap:1.2rem;align-items:flex-start;background:#0d150d;border:1px solid rgba(163,230,53,0.13);border-radius:6px;padding:1.2rem 1.4rem;transition:border-color 0.2s;" onmouseenter="this.style.borderColor='rgba(163,230,53,0.35)'" onmouseleave="this.style.borderColor='rgba(163,230,53,0.13)'">
+            <div style="flex-shrink:0;width:36px;height:36px;border-radius:50%;background:rgba(163,230,53,0.08);border:1.5px solid rgba(163,230,53,0.25);display:flex;align-items:center;justify-content:center;font-size:16px;margin-top:2px;">🌿</div>
+            <div>
+              <div style="font-size:14px;font-weight:600;color:#e8f5e9;margin-bottom:4px;">Impacto na produção agropecuária</div>
+              <div style="font-size:13px;color:#6b7c6b;line-height:1.7;">A agropecuária emite, mas também sofre os efeitos: estresse hídrico reduz produtividade, pastagens degradam-se mais rápido e o custo de produção sobe. O setor fica preso num <strong style="color:#a3e635;">ciclo vicioso</strong> que só políticas de mitigação quebram.</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;padding:0 0 0 1.2rem;"><div style="width:36px;text-align:center;color:#ef4444;font-size:18px;">↓</div></div>
+          <div class="cascade-card" style="display:flex;gap:1.2rem;align-items:flex-start;background:#0d150d;border:1px solid rgba(239,68,68,0.13);border-radius:6px;padding:1.2rem 1.4rem;transition:border-color 0.2s;" onmouseenter="this.style.borderColor='rgba(239,68,68,0.35)'" onmouseleave="this.style.borderColor='rgba(239,68,68,0.13)'">
+            <div style="flex-shrink:0;width:36px;height:36px;border-radius:50%;background:rgba(239,68,68,0.08);border:1.5px solid rgba(239,68,68,0.25);display:flex;align-items:center;justify-content:center;font-size:16px;margin-top:2px;">🌊</div>
+            <div>
+              <div style="font-size:14px;font-weight:600;color:#e8f5e9;margin-bottom:4px;">Riscos sistêmicos globais</div>
+              <div style="font-size:13px;color:#6b7c6b;line-height:1.7;">Derretimento de permafrost libera mais metano (retroalimentação), eleva o nível do mar, intensifica furacões e aumenta a frequência de eventos extremos. Agir <strong style="color:#f87171;">antes de 2030</strong> é o caminho mais eficiente — cada ano de atraso multiplica o custo da adaptação.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Dado de impacto no Brasil -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:1rem;">
+      <div style="background:#071209;border:1px solid rgba(34,197,94,0.12);border-radius:6px;padding:1.2rem 1.4rem;text-align:center;">
+        <div style="font-size:2rem;margin-bottom:6px;">🌡️</div>
+        <div style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:#22c55e;">+1,1°C</div>
+        <div style="font-size:12px;color:#6b7c6b;margin-top:4px;">aquecimento global desde 1850</div>
+      </div>
+      <div style="background:#071209;border:1px solid rgba(34,197,94,0.12);border-radius:6px;padding:1.2rem 1.4rem;text-align:center;">
+        <div style="font-size:2rem;margin-bottom:6px;">📉</div>
+        <div style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:#22c55e;">-20%</div>
+        <div style="font-size:12px;color:#6b7c6b;margin-top:4px;">queda na produtividade do trigo por °C adicional</div>
+      </div>
+      <div style="background:#071209;border:1px solid rgba(34,197,94,0.12);border-radius:6px;padding:1.2rem 1.4rem;text-align:center;">
+        <div style="font-size:2rem;margin-bottom:6px;">💸</div>
+        <div style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:#22c55e;">R$ 4T</div>
+        <div style="font-size:12px;color:#6b7c6b;margin-top:4px;">perdas previstas na agro brasileira até 2050</div>
+      </div>
+      <div style="background:#071209;border:1px solid rgba(34,197,94,0.12);border-radius:6px;padding:1.2rem 1.4rem;text-align:center;">
+        <div style="font-size:2rem;margin-bottom:6px;">⏱️</div>
+        <div style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:#22c55e;">12 anos</div>
+        <div style="font-size:12px;color:#6b7c6b;margin-top:4px;">tempo de vida do CH₄ na atmosfera</div>
+      </div>
+    </div>
+  </div>
+  <!-- ───────────── ABA 3: Mitigação ───────────── -->
+  <div id="edu-tab-mitigacao" class="edu-panel" style="display:none;">
+    <div style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:#f0fdf4;margin-bottom:0.5rem;">Como reduzir as emissões de metano no campo</div>
+    <p style="font-size:14px;color:#6b7c6b;line-height:1.75;margin-bottom:2rem;">Tecnologias, práticas e políticas já existem — e muitas são economicamente viáveis. Abaixo, cada solução é explicada em detalhe: o que é, como funciona, qual o impacto real e o que o Brasil já está fazendo a respeito.</p>
+    <!-- ── SOLUÇÃO 1: Aditivos e Vacinas ── -->
+    <div style="border:1.5px solid rgba(34,197,94,0.15);border-radius:8px;overflow:hidden;margin-bottom:1rem;background:#070f07;">
+      <div style="display:flex;align-items:center;gap:1rem;padding:1.25rem 1.5rem;background:#0a130a;border-bottom:1px solid rgba(34,197,94,0.1);">
+        <div style="font-size:1.8rem;flex-shrink:0;display:none;">🧪</div>
+        <div style="flex:1;">
+          <div style="font-size:16px;font-weight:700;color:#e8f5e9;">Aditivos alimentares e vacinas anti-metanogênicas</div>
+          <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.15em;color:#22c55e;margin-top:2px;">Pecuária bovina · Fermentação entérica</div>
+        </div>
+        <div style="text-align:right;flex-shrink:0;">
+          <div style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:#22c55e;">~130 Mt</div>
+          <div style="font-size:10px;color:#6b7c6b;text-transform:uppercase;letter-spacing:0.1em;">potencial/ano</div>
+        </div>
+      </div>
+      <div style="padding:1.5rem;">
+        <p style="font-size:13px;color:#9ab89a;line-height:1.85;margin-bottom:1rem;">A fermentação entérica — o processo digestivo dos ruminantes — é responsável por <strong style="color:#e8f5e9;">65,7% das emissões de metano</strong> no Brasil. Cada boi emite entre 70 e 120 kg de CH₄ por ano, simplesmente digerindo o capim. As soluções atuam diretamente nas bactérias do rúmen que produzem esse gás.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:1rem;">
+          <div style="background:rgba(34,197,94,0.05);border:1px solid rgba(34,197,94,0.12);border-radius:6px;padding:1rem;">
+            <div style="font-size:12px;font-weight:700;color:#4ade80;margin-bottom:6px;">3-NOP (3-nitroxipropanol)</div>
+            <p style="font-size:12px;color:#6b7c6b;line-height:1.7;margin:0;">Aditivo químico que bloqueia especificamente a enzima MCR das arqueias metanogênicas no rúmen, sem prejudicar a digestão. Reduz o metano entérico em <strong style="color:#e8f5e9;">até 30%</strong> e já é aprovado na União Europeia e EUA. No Brasil, está em fase de registro na MAPA.</p>
+          </div>
+          <div style="background:rgba(34,197,94,0.05);border:1px solid rgba(34,197,94,0.12);border-radius:6px;padding:1rem;">
+            <div style="font-size:12px;font-weight:700;color:#4ade80;margin-bottom:6px;">Vacinas anti-metanogênicas</div>
+            <p style="font-size:12px;color:#6b7c6b;line-height:1.7;margin:0;">Treinam o sistema imune do boi a produzir anticorpos que reduzem as populações de arqueias metanogênicas no rúmen. Austrália e Nova Zelândia lideram os testes — com <strong style="color:#e8f5e9;">previsão de lançamento comercial em 2026</strong>. Uma única dose poderia durar anos.</p>
+          </div>
+        </div>
+        <div style="background:rgba(34,197,94,0.05);border:1px solid rgba(34,197,94,0.12);border-radius:6px;padding:1rem;margin-bottom:1rem;">
+          <div style="font-size:12px;font-weight:700;color:#4ade80;margin-bottom:6px;">Algas marinhas (Asparagopsis)</div>
+          <p style="font-size:12px;color:#6b7c6b;line-height:1.7;margin:0;">Pesquisas australianas mostraram que adicionar a alga <em>Asparagopsis taxiformis</em> à ração bovina reduz o metano entérico em <strong style="color:#e8f5e9;">até 80%</strong>. O composto ativo (bromofórmio) inibe diretamente as arqueias. Ainda em escala experimental, mas com grande potencial — especialmente para confinamentos.</p>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;font-size:11px;">
+          <span style="background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.2);border-radius:999px;padding:3px 10px;color:#22c55e;">✓ Tecnologia disponível (3-NOP)</span>
+          <span style="background:rgba(251,191,36,0.08);border:1px solid rgba(251,191,36,0.2);border-radius:999px;padding:3px 10px;color:#fbbf24;">⏳ Em testes (vacinas, algas)</span>
+          <span style="background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.2);border-radius:999px;padding:3px 10px;color:#22c55e;">✓ Sem queda de produtividade</span>
+        </div>
+      </div>
+    </div>
+    <!-- ── SOLUÇÃO 2: Manejo de Pastagens ── -->
+    <div style="border:1.5px solid rgba(34,197,94,0.15);border-radius:8px;overflow:hidden;margin-bottom:1rem;background:#070f07;">
+      <div style="display:flex;align-items:center;gap:1rem;padding:1.25rem 1.5rem;background:#0a130a;border-bottom:1px solid rgba(34,197,94,0.1);">
+        <div style="font-size:1.8rem;flex-shrink:0;display:none;">🌿</div>
+        <div style="flex:1;">
+          <div style="font-size:16px;font-weight:700;color:#e8f5e9;">Recuperação de pastagens e ILPF (Plano ABC+)</div>
+          <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.15em;color:#22c55e;margin-top:2px;">Pecuária extensiva · Maior potencial de redução</div>
+        </div>
+        <div style="text-align:right;flex-shrink:0;">
+          <div style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:#22c55e;">~180 Mt</div>
+          <div style="font-size:10px;color:#6b7c6b;text-transform:uppercase;letter-spacing:0.1em;">potencial/ano</div>
+        </div>
+      </div>
+      <div style="padding:1.5rem;">
+        <p style="font-size:13px;color:#9ab89a;line-height:1.85;margin-bottom:1rem;">O Brasil tem <strong style="color:#e8f5e9;">170 milhões de hectares de pastagens</strong>, dos quais estima-se que 60–70 milhões estão em algum grau de degradação. Pastagens degradadas sustentam menos animais por hectare, forçando o desmatamento de novas áreas e aumentando as emissões por quilo de carne produzido. A solução é uma combinação de três sistemas integrados:</p>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:1rem;">
+          <div style="display:flex;gap:12px;align-items:flex-start;background:rgba(34,197,94,0.04);border:1px solid rgba(34,197,94,0.1);border-radius:6px;padding:0.85rem 1rem;">
+            <div style="font-size:1.2rem;flex-shrink:0;margin-top:2px;display:none;">🌾</div>
+            <div>
+              <div style="font-size:13px;font-weight:600;color:#e8f5e9;margin-bottom:3px;">Lavoura — recuperação do solo</div>
+              <p style="font-size:12px;color:#6b7c6b;line-height:1.65;margin:0;">Rotação de culturas e plantio de leguminosas repõem matéria orgânica e fixam nitrogênio, eliminando a necessidade de derrubar novas áreas. Pasto recuperado comporta <strong style="color:#e8f5e9;">2 a 3 vezes mais animais</strong> por hectare.</p>
+            </div>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;background:rgba(34,197,94,0.04);border:1px solid rgba(34,197,94,0.1);border-radius:6px;padding:0.85rem 1rem;">
+            <div style="font-size:1.2rem;flex-shrink:0;margin-top:2px;display:none;">🐄</div>
+            <div>
+              <div style="font-size:13px;font-weight:600;color:#e8f5e9;margin-bottom:3px;">Pecuária — eficiência e bem-estar animal</div>
+              <p style="font-size:12px;color:#6b7c6b;line-height:1.65;margin:0;">Animais em pastos de qualidade crescem mais rápido, são abatidos antes (menor tempo emitindo metano) e produzem mais carne por cabeça. A emissão de CH₄ por kg de carne produzida cai <strong style="color:#e8f5e9;">em até 40%</strong>.</p>
+            </div>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;background:rgba(34,197,94,0.04);border:1px solid rgba(34,197,94,0.1);border-radius:6px;padding:0.85rem 1rem;">
+            <div style="font-size:1.2rem;flex-shrink:0;display:none;"></div>
+            <div>
+              <div style="font-size:13px;font-weight:600;color:#e8f5e9;margin-bottom:3px;">Floresta (ILPF) — sequestro de carbono no próprio pasto</div>
+              <p style="font-size:12px;color:#6b7c6b;line-height:1.65;margin:0;">Árvores intercaladas no pasto sequestram carbono, fornecem sombra (reduzindo estresse do animal e aumentando produtividade), e ainda geram renda com madeira. O sistema ILPF pode tornar uma propriedade <strong style="color:#e8f5e9;">carbono-neutro ou até negativo</strong>.</p>
+            </div>
+          </div>
+        </div>
+        <div style="background:rgba(34,197,94,0.06);border-left:3px solid #22c55e;padding:0.8rem 1rem;border-radius:0 4px 4px 0;font-size:12px;color:#9ab89a;line-height:1.7;">
+          <strong style="color:#4ade80;">Plano ABC+:</strong> O governo federal definiu como meta recuperar <strong style="color:#e8f5e9;">72 milhões de hectares</strong> de pastagens degradadas até 2030, com linhas de crédito rural subsidiadas para produtores que aderirem.
+        </div>
+      </div>
+    </div>
+    <!-- ── SOLUÇÃO 3: AWD Arrozais ── -->
+    <div style="border:1.5px solid rgba(34,197,94,0.15);border-radius:8px;overflow:hidden;margin-bottom:1rem;background:#070f07;">
+      <div style="display:flex;align-items:center;gap:1rem;padding:1.25rem 1.5rem;background:#0a130a;border-bottom:1px solid rgba(34,197,94,0.1);">
+        <div style="font-size:1.8rem;flex-shrink:0;display:none;">🌾</div>
+        <div style="flex:1;">
+          <div style="font-size:16px;font-weight:700;color:#e8f5e9;">Irrigação intermitente em arrozais (AWD)</div>
+          <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.15em;color:#22c55e;margin-top:2px;">Orizicultura · Ambientes alagados</div>
+        </div>
+        <div style="text-align:right;flex-shrink:0;">
+          <div style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:#22c55e;">~22 Mt</div>
+          <div style="font-size:10px;color:#6b7c6b;text-transform:uppercase;letter-spacing:0.1em;">potencial/ano</div>
+        </div>
+      </div>
+      <div style="padding:1.5rem;">
+        <p style="font-size:13px;color:#9ab89a;line-height:1.85;margin-bottom:1rem;">Arrozais alagados de forma <em>contínua</em> criam um ambiente anaeróbico (sem oxigênio) no solo, ideal para bactérias produtoras de metano. O Rio Grande do Sul, maior produtor de arroz irrigado do país, é responsável por uma parcela significativa dessas emissões.</p>
+        <div style="background:rgba(34,197,94,0.05);border:1px solid rgba(34,197,94,0.12);border-radius:6px;padding:1rem;margin-bottom:1rem;">
+          <div style="font-size:12px;font-weight:700;color:#4ade80;margin-bottom:8px;">Como funciona o AWD (Alternate Wetting and Drying)?</div>
+          <div style="display:flex;gap:0;overflow:hidden;border-radius:4px;margin-bottom:8px;">
+            <div style="flex:1;background:rgba(59,130,246,0.12);border:1px solid rgba(59,130,246,0.2);padding:0.6rem 0.8rem;text-align:center;">
+              <div style="font-size:18px;margin-bottom:4px;display:none;">💧</div>
+              <div style="font-size:11px;font-weight:600;color:#60a5fa;">Fase Úmida</div>
+              <div style="font-size:10px;color:#6b7c6b;margin-top:2px;">Campo inundado normalmente</div>
+            </div>
+            <div style="width:2px;background:#0a130a;"></div>
+            <div style="flex:1;background:rgba(251,191,36,0.08);border:1px solid rgba(251,191,36,0.2);padding:0.6rem 0.8rem;text-align:center;">
+              <div style="font-size:18px;margin-bottom:4px;display:none;">🌤️</div>
+              <div style="font-size:11px;font-weight:600;color:#fbbf24;">Fase Seca</div>
+              <div style="font-size:10px;color:#6b7c6b;margin-top:2px;">Solo seca parcialmente (15–20 dias)</div>
+            </div>
+            <div style="width:2px;background:#0a130a;"></div>
+            <div style="flex:1;background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.2);padding:0.6rem 0.8rem;text-align:center;">
+              <div style="font-size:18px;margin-bottom:4px;display:none;">🔄</div>
+              <div style="font-size:11px;font-weight:600;color:#22c55e;">Repetição</div>
+              <div style="font-size:10px;color:#6b7c6b;margin-top:2px;">Ciclo alternado durante o cultivo</div>
+            </div>
+          </div>
+          <p style="font-size:12px;color:#6b7c6b;line-height:1.65;margin:0;">A fase de secagem interrompe o metabolismo anaeróbico e reduz as populações de bactérias metanogênicas. Resultado: <strong style="color:#e8f5e9;">até 48% menos metano</strong>, sem queda significativa na produtividade e com economia de até 30% no uso de água.</p>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;font-size:11px;">
+          <span style="background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.2);border-radius:999px;padding:3px 10px;color:#22c55e;">✓ Baixo custo de implementação</span>
+          <span style="background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.2);border-radius:999px;padding:3px 10px;color:#22c55e;">✓ Economiza água</span>
+          <span style="background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.2);border-radius:999px;padding:3px 10px;color:#22c55e;">✓ Produtividade preservada</span>
+        </div>
+      </div>
+    </div>
+    <!-- ── SOLUÇÃO 4: Biogás ── -->
+    <div style="border:1.5px solid rgba(34,197,94,0.15);border-radius:8px;overflow:hidden;margin-bottom:1rem;background:#070f07;">
+      <div style="display:flex;align-items:center;gap:1rem;padding:1.25rem 1.5rem;background:#0a130a;border-bottom:1px solid rgba(34,197,94,0.1);">
+        <div style="font-size:1.8rem;flex-shrink:0;display:none;">⚡</div>
+        <div style="flex:1;">
+          <div style="font-size:16px;font-weight:700;color:#e8f5e9;">Biodigestores e biogás a partir de dejetos</div>
+          <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.15em;color:#22c55e;margin-top:2px;">Suinocultura · Avicultura · Resíduos animais</div>
+        </div>
+        <div style="text-align:right;flex-shrink:0;">
+          <div style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:#22c55e;">~55 Mt</div>
+          <div style="font-size:10px;color:#6b7c6b;text-transform:uppercase;letter-spacing:0.1em;">potencial/ano</div>
+        </div>
+      </div>
+      <div style="padding:1.5rem;">
+        <p style="font-size:13px;color:#9ab89a;line-height:1.85;margin-bottom:1rem;">Dejetos de suínos e aves, quando armazenados em lagoas abertas, liberam metano diretamente para a atmosfera. Um biodigestor transforma esse problema num recurso: captura o gás antes que ele escape e o converte em energia limpa.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:1rem;">
+          <div style="background:rgba(34,197,94,0.05);border:1px solid rgba(34,197,94,0.12);border-radius:6px;padding:0.85rem;text-align:center;">
+            <div style="font-size:1.3rem;margin-bottom:4px;display:none;">🔋</div>
+            <div style="font-size:12px;font-weight:600;color:#e8f5e9;margin-bottom:3px;">Biogás / Biometano</div>
+            <p style="font-size:11px;color:#6b7c6b;line-height:1.55;margin:0;">Geração de eletricidade na propriedade ou injeção na rede de gás natural — substituindo combustível fóssil.</p>
+          </div>
+          <div style="background:rgba(34,197,94,0.05);border:1px solid rgba(34,197,94,0.12);border-radius:6px;padding:0.85rem;text-align:center;">
+            <div style="font-size:1.3rem;margin-bottom:4px;display:none;">🌱</div>
+            <div style="font-size:12px;font-weight:600;color:#e8f5e9;margin-bottom:3px;">Biofertilizante</div>
+            <p style="font-size:11px;color:#6b7c6b;line-height:1.55;margin:0;">O resíduo líquido do biodigestor é rico em nutrientes e substitui adubos químicos — gerando economia extra ao produtor.</p>
+          </div>
+          <div style="background:rgba(34,197,94,0.05);border:1px solid rgba(34,197,94,0.12);border-radius:6px;padding:0.85rem;text-align:center;">
+            <div style="font-size:1.3rem;margin-bottom:4px;display:none;">💰</div>
+            <div style="font-size:12px;font-weight:600;color:#e8f5e9;margin-bottom:3px;">Créditos de carbono</div>
+            <p style="font-size:11px;color:#6b7c6b;line-height:1.55;margin:0;">A captura de metano gera créditos negociáveis no mercado de carbono — criando uma terceira fonte de renda para o produtor.</p>
+          </div>
+        </div>
+        <div style="background:rgba(34,197,94,0.06);border-left:3px solid #22c55e;padding:0.8rem 1rem;border-radius:0 4px 4px 0;font-size:12px;color:#9ab89a;line-height:1.7;">
+          O Brasil tem potencial de gerar <strong style="color:#4ade80;">100 TWh/ano</strong> com biogás de dejetos animais — equivalente a abastecer o estado de São Paulo por 4 anos. Hoje, menos de 5% desse potencial está aproveitado.
+        </div>
+      </div>
+    </div>
+    <!-- ── SOLUÇÃO 5: REDD+ e Restauração Florestal ── -->
+    <div style="border:1.5px solid rgba(34,197,94,0.15);border-radius:8px;overflow:hidden;margin-bottom:1rem;background:#070f07;">
+      <div style="display:flex;align-items:center;gap:1rem;padding:1.25rem 1.5rem;background:#0a130a;border-bottom:1px solid rgba(34,197,94,0.1);">
+        <div style="font-size:1.8rem;flex-shrink:0;display:none;"></div>
+        <div style="flex:1;">
+          <div style="font-size:16px;font-weight:700;color:#e8f5e9;">Restauração florestal e mecanismo REDD+</div>
+          <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.15em;color:#22c55e;margin-top:2px;">Uso da terra · Desmatamento · Mercado internacional</div>
+        </div>
+        <div style="text-align:right;flex-shrink:0;">
+          <div style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:#22c55e;">~40 Mt</div>
+          <div style="font-size:10px;color:#6b7c6b;text-transform:uppercase;letter-spacing:0.1em;">potencial/ano</div>
+        </div>
+      </div>
+      <div style="padding:1.5rem;">
+        <p style="font-size:13px;color:#9ab89a;line-height:1.85;margin-bottom:1rem;">O desmatamento libera não apenas CO₂, mas também o metano aprisionado no solo orgânico e na biomassa vegetal em decomposição. Florestas em pé funcionam como sumidouros de carbono — e o REDD+ é o mecanismo que transforma essa função ecológica em valor econômico concreto.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:1rem;">
+          <div style="background:rgba(34,197,94,0.05);border:1px solid rgba(34,197,94,0.12);border-radius:6px;padding:1rem;">
+            <div style="font-size:12px;font-weight:700;color:#4ade80;margin-bottom:6px;">O que é REDD+?</div>
+            <p style="font-size:12px;color:#6b7c6b;line-height:1.7;margin:0;"><strong style="color:#e8f5e9;">Reducing Emissions from Deforestation and Forest Degradation</strong> — mecanismo internacional que remunera países e proprietários rurais por evitar o desmatamento. Cada tonelada de CO₂ equivalente não emitida pode ser vendida como crédito de carbono em mercados globais.</p>
+          </div>
+          <div style="background:rgba(34,197,94,0.05);border:1px solid rgba(34,197,94,0.12);border-radius:6px;padding:1rem;">
+            <div style="font-size:12px;font-weight:700;color:#4ade80;margin-bottom:6px;">Restauração florestal ativa</div>
+            <p style="font-size:12px;color:#6b7c6b;line-height:1.7;margin:0;">Além de preservar, o plantio de florestas nativas em áreas degradadas sequestra carbono ativamente ao longo dos anos. O Brasil comprometeu-se a restaurar <strong style="color:#e8f5e9;">12 milhões de hectares</strong> de florestas nativas até 2030 — parte das metas do Acordo de Paris.</p>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;font-size:11px;">
+          <span style="background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.2);border-radius:999px;padding:3px 10px;color:#22c55e;">✓ Gera renda para proprietário rural</span>
+          <span style="background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.2);border-radius:999px;padding:3px 10px;color:#22c55e;">✓ Acesso ao mercado de carbono</span>
+          <span style="background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.2);border-radius:999px;padding:3px 10px;color:#22c55e;">✓ Protege biodiversidade</span>
+        </div>
+      </div>
+    </div>
+    <!-- ── SOLUÇÃO 6: Mercado de Carbono ── -->
+    <div style="border:1.5px solid rgba(34,197,94,0.15);border-radius:8px;overflow:hidden;margin-bottom:1rem;background:#070f07;">
+      <div style="display:flex;align-items:center;gap:1rem;padding:1.25rem 1.5rem;background:#0a130a;border-bottom:1px solid rgba(34,197,94,0.1);">
+        <div style="font-size:1.8rem;flex-shrink:0;display:none;">📊</div>
+        <div style="flex:1;">
+          <div style="font-size:16px;font-weight:700;color:#e8f5e9;">Rastreabilidade bovina e mercado regulado de carbono</div>
+          <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.15em;color:#22c55e;margin-top:2px;">Política pública · Incentivos econômicos · SBCE</div>
+        </div>
+        <div style="text-align:right;flex-shrink:0;">
+          <div style="font-size:11px;font-weight:700;color:#22c55e;font-family:'DM Mono',monospace;">Infraestrutura</div>
+          <div style="font-size:10px;color:#6b7c6b;text-transform:uppercase;letter-spacing:0.1em;">para todas as soluções</div>
+        </div>
+      </div>
+      <div style="padding:1.5rem;">
+        <p style="font-size:13px;color:#9ab89a;line-height:1.85;margin-bottom:1rem;">Nenhuma das soluções anteriores escala sem <strong style="color:#e8f5e9;">medição, verificação e incentivo econômico</strong>. O mercado de carbono e a rastreabilidade são a espinha dorsal que torna o restante viável em larga escala.</p>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:1rem;">
+          <div style="display:flex;gap:10px;align-items:flex-start;padding:0.85rem 1rem;background:rgba(34,197,94,0.04);border:1px solid rgba(34,197,94,0.1);border-radius:6px;">
+            <div style="font-size:1.1rem;flex-shrink:0;display:none;">🐄</div>
+            <div>
+              <div style="font-size:13px;font-weight:600;color:#e8f5e9;margin-bottom:3px;">Rastreabilidade bovina (SISBOV)</div>
+              <p style="font-size:12px;color:#6b7c6b;line-height:1.65;margin:0;">Cada animal identificado permite calcular a pegada de carbono por arroba produzida. Produtores com menor emissão por kg de carne podem receber selos premium e acessar mercados exigentes — como a União Europeia, que exige rastreabilidade para importação de carne a partir de 2025.</p>
+            </div>
+          </div>
+          <div style="display:flex;gap:10px;align-items:flex-start;padding:0.85rem 1rem;background:rgba(34,197,94,0.04);border:1px solid rgba(34,197,94,0.1);border-radius:6px;">
+            <div style="font-size:1.1rem;flex-shrink:0;">🏛️</div>
+            <div>
+              <div style="font-size:13px;font-weight:600;color:#e8f5e9;margin-bottom:3px;">SBCE — Sistema Brasileiro de Comércio de Emissões</div>
+              <p style="font-size:12px;color:#6b7c6b;line-height:1.65;margin:0;">O Brasil regulamentou seu mercado de carbono (Lei 15.042/2024). O SBCE funciona como um sistema cap-and-trade: empresas e propriedades que emitem acima de um limite compram créditos; quem emite menos vende. Para o agronegócio, isso cria incentivo financeiro direto para adotar todas as práticas desta lista.</p>
+            </div>
+          </div>
+        </div>
+        <div style="background:rgba(34,197,94,0.06);border-left:3px solid #22c55e;padding:0.8rem 1rem;border-radius:0 4px 4px 0;font-size:12px;color:#9ab89a;line-height:1.7;">
+          <strong style="color:#4ade80;">Por que isso é a "base" de tudo?</strong> Sem mensuração confiável, não há como certificar reduções. Sem certificação, não há crédito de carbono. Sem crédito, não há retorno financeiro para o produtor investir nas mudanças.
+        </div>
+      </div>
+    </div>
+    <!-- ── SOLUÇÃO 7: Genética e Seleção Animal ── -->
+    <div style="border:1.5px solid rgba(74,222,128,0.12);border-radius:8px;overflow:hidden;margin-bottom:1rem;background:#070f07;">
+      <div style="display:flex;align-items:center;gap:1rem;padding:1.25rem 1.5rem;background:#0a130a;border-bottom:1px solid rgba(74,222,128,0.1);">
+        <div style="font-size:1.8rem;flex-shrink:0;display:none;"></div>
+        <div style="flex:1;">
+          <div style="font-size:16px;font-weight:700;color:#e8f5e9;">Melhoramento genético de baixo metano</div>
+          <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.15em;color:#4ade80;margin-top:2px;">Solução emergente · Longo prazo · Alta escala</div>
+        </div>
+        <div style="text-align:right;flex-shrink:0;">
+          <div style="font-size:11px;font-weight:700;color:#4ade80;font-family:'DM Mono',monospace;">Em pesquisa</div>
+          <div style="font-size:10px;color:#6b7c6b;text-transform:uppercase;letter-spacing:0.1em;">horizonte 2030+</div>
+        </div>
+      </div>
+      <div style="padding:1.5rem;">
+        <p style="font-size:13px;color:#9ab89a;line-height:1.85;margin-bottom:1rem;">Animais de uma mesma raça e dieta podem emitir quantidades de metano muito diferentes — e essa característica é <strong style="color:#e8f5e9;">hereditária</strong>. Pesquisas na Nova Zelândia, Austrália e agora no Brasil (Embrapa) identificaram que é possível selecionar geneticamente animais com microbiomas ruminais naturalmente mais eficientes.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div style="background:rgba(74,222,128,0.05);border:1px solid rgba(74,222,128,0.12);border-radius:6px;padding:1rem;">
+            <div style="font-size:12px;font-weight:700;color:#86efac;margin-bottom:6px;">Como funciona</div>
+            <p style="font-size:12px;color:#6b7c6b;line-height:1.7;margin:0;">Bovinos são avaliados individualmente quanto à emissão de metano (com câmaras respiratórias ou SF6 traçador). Os de menor emissão são selecionados como reprodutores. Em poucas gerações, o rebanho como um todo emite menos — sem nenhum aditivo ou mudança de manejo.</p>
+          </div>
+          <div style="background:rgba(74,222,128,0.05);border:1px solid rgba(74,222,128,0.12);border-radius:6px;padding:1rem;">
+            <div style="font-size:12px;font-weight:700;color:#86efac;margin-bottom:6px;">Potencial e prazo</div>
+            <p style="font-size:12px;color:#6b7c6b;line-height:1.7;margin:0;">Estudos estimam redução de <strong style="color:#e8f5e9;">10 a 20%</strong> nas emissões por geração selecionada. O resultado é permanente e se expande naturalmente com a reprodução do rebanho. A Embrapa já tem programas de seleção em andamento para raças zebuínas tropicais.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ── SOLUÇÃO 8: Nutrição de Precisão ── -->
+    <div style="border:1.5px solid rgba(74,222,128,0.12);border-radius:8px;overflow:hidden;margin-bottom:2rem;background:#070f07;">
+      <div style="display:flex;align-items:center;gap:1rem;padding:1.25rem 1.5rem;background:#0a130a;border-bottom:1px solid rgba(74,222,128,0.1);">
+        <div style="font-size:1.8rem;flex-shrink:0;display:none;"></div>
+        <div style="flex:1;">
+          <div style="font-size:16px;font-weight:700;color:#e8f5e9;">Nutrição de precisão e ajuste da dieta bovina</div>
+          <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.15em;color:#4ade80;margin-top:2px;">Manejo alimentar · Confinamentos · Integração com dados</div>
+        </div>
+        <div style="text-align:right;flex-shrink:0;">
+          <div style="font-size:11px;font-weight:700;color:#4ade80;font-family:'DM Mono',monospace;">Imediato</div>
+          <div style="font-size:10px;color:#6b7c6b;text-transform:uppercase;letter-spacing:0.1em;">aplicável hoje</div>
+        </div>
+      </div>
+      <div style="padding:1.5rem;">
+        <p style="font-size:13px;color:#9ab89a;line-height:1.85;margin-bottom:1rem;">A composição da dieta do bovino impacta diretamente quanto metano ele produz. Rações ricas em amido fermentável (milho, sorgo) geram menos metano do que dietas baseadas só em capim. Ajustar a alimentação pode reduzir as emissões sem custo adicional — ou até com economia.</p>
+        <div style="display:flex;flex-direction:column;gap:6px;font-size:12px;color:#6b7c6b;line-height:1.65;">
+          <div style="display:flex;gap:8px;align-items:center;padding:6px 10px;background:rgba(34,197,94,0.04);border-radius:4px;">
+            <span style="color:#22c55e;font-weight:700;flex-shrink:0;">↓ Metano</span>
+            <span>Inclusão de lipídios (gorduras) na ração — inibem as arqueias e aumentam a densidade energética da dieta em até <strong style="color:#e8f5e9;">20%</strong>.</span>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;padding:6px 10px;background:rgba(34,197,94,0.04);border-radius:4px;">
+            <span style="color:#22c55e;font-weight:700;flex-shrink:0;">↓ Metano</span>
+            <span>Taninos e compostos fenólicos de plantas como leucena e acácia inibem naturalmente a metanogênese e ainda melhoram o perfil proteico da dieta.</span>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;padding:6px 10px;background:rgba(34,197,94,0.04);border-radius:4px;">
+            <span style="color:#22c55e;font-weight:700;flex-shrink:0;">↓ Metano</span>
+            <span>Forragens de alta digestibilidade (capins melhorados, silagem de milho) são processadas mais rápido no rúmen — menos tempo para as arqueias produzirem metano.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Potencial de redução estimado -->
+    <div style="background:#0d150d;border:1.5px solid rgba(34,197,94,0.12);border-radius:6px;padding:1.75rem 2rem;">
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.18em;color:#6b7c6b;margin-bottom:1.2rem;">Potencial estimado de redução por prática (Mt CO₂e/ano · Brasil)</div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span style="font-size:13px;color:#e8f5e9;">Manejo de pastagens (ABC+)</span><span style="font-size:13px;color:#22c55e;font-family:'DM Mono',monospace;font-weight:700;">~180 Mt</span></div>
+          <div style="height:7px;background:rgba(34,197,94,0.07);border-radius:999px;overflow:hidden;"><div style="width:100%;height:100%;background:linear-gradient(90deg,#22c55e,#4ade80);border-radius:999px;"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span style="font-size:13px;color:#e8f5e9;">Aditivos e dieta bovina</span><span style="font-size:13px;color:#4ade80;font-family:'DM Mono',monospace;font-weight:700;">~130 Mt</span></div>
+          <div style="height:7px;background:rgba(34,197,94,0.07);border-radius:999px;overflow:hidden;"><div style="width:72%;height:100%;background:linear-gradient(90deg,#4ade80,#86efac);border-radius:999px;"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span style="font-size:13px;color:#e8f5e9;">Biogás de dejetos animais</span><span style="font-size:13px;color:#86efac;font-family:'DM Mono',monospace;font-weight:700;">~55 Mt</span></div>
+          <div style="height:7px;background:rgba(34,197,94,0.07);border-radius:999px;overflow:hidden;"><div style="width:30%;height:100%;background:linear-gradient(90deg,#86efac,#d9f99d);border-radius:999px;"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span style="font-size:13px;color:#e8f5e9;">Restauração florestal / REDD+</span><span style="font-size:13px;color:#fef9c3;font-family:'DM Mono',monospace;font-weight:700;">~40 Mt</span></div>
+          <div style="height:7px;background:rgba(34,197,94,0.07);border-radius:999px;overflow:hidden;"><div style="width:22%;height:100%;background:linear-gradient(90deg,#fef9c3,#fbbf24);border-radius:999px;"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span style="font-size:13px;color:#e8f5e9;">AWD em arrozais</span><span style="font-size:13px;color:#d9f99d;font-family:'DM Mono',monospace;font-weight:700;">~22 Mt</span></div>
+          <div style="height:7px;background:rgba(34,197,94,0.07);border-radius:999px;overflow:hidden;"><div style="width:12%;height:100%;background:linear-gradient(90deg,#d9f99d,#fef9c3);border-radius:999px;"></div></div>
+        </div>
+      </div>
+      <div style="margin-top:14px;font-size:11px;color:#4a6a4a;font-family:'DM Mono',monospace;line-height:1.6;">Fonte: SEEG / Observatório do Clima · IPCC AR6 · Plano ABC+ MDA 2023. Estimativas com implementação total das práticas até 2030.</div>
+    </div>
+  </div>
+</section>
+<!-- ── MAPA DE EMISSÕES ── -->
+<div style="position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:0 3rem 5rem;"> <div style="margin-bottom:1.5rem;"> <div class="tag" style="margin-bottom:0.8rem;">Distribuição Geográfica</div> <h2 style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#f0fdf4;">Emissões por Estado</h2>
+    <div style="margin-top:0.75rem;font-size:15px;color:#9ab89a;line-height:2.2;max-width:640px;">
+        <span style="color:#e8f5e9;font-family:'DM Mono',monospace;font-weight:600;">Mt</span> = Megatoneladas = milhões de toneladas<br>
+        <span style="color:#e8f5e9;font-family:'DM Mono',monospace;font-weight:600;">CO₂</span> = Dióxido de carbono — usado como referência, mesmo quando o gás medido é outro (como o metano)<br>
+        <span style="color:#e8f5e9;font-family:'DM Mono',monospace;font-weight:600;">e</span> = "equivalente" — converte diferentes gases de efeito estufa numa unidade comum para comparação
+      </div>
+  </div> <div style="border:1.5px solid rgba(34,197,94,0.15);border-radius:4px;background:#0d150d;overflow:hidden;"> <!-- Cabeçalho do mapa --> <div style="padding:1.5rem 2rem;border-bottom:1px solid rgba(34,197,94,0.1);"> <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:#22c55e;border:1px solid rgba(34,197,94,0.25);padding:3px 10px;border-radius:999px;display:inline-block;margin-bottom:10px;">CH₄ · Metano · Brasil 2023</div> <div style="font-size:13px;color:#6b7c6b;font-family:'DM Sans',sans-serif;line-height:1.6;">Intensidade relativa de CH₄ — agropecuária, resíduos e uso da terra. Verde claro = menor · Verde escuro = maior &nbsp;·&nbsp; <span style="color:#22c55e;font-weight:500;">Clique em um estado</span> para ver o histórico de emissões.</div> </div> <!-- Corpo do mapa (iframe isolado) --> <div id="map-wrap-embed" style="position:relative;width:100%;"> <div id="tooltip-embed" style="position:absolute;pointer-events:none;display:none;background:#0d1f14;border:1px solid rgba(74,222,128,0.3);border-radius:10px;padding:10px 14px;font-size:12px;color:#d4edda;z-index:10;font-family:'DM Mono',monospace;box-shadow:0 4px 24px rgba(0,0,0,0.6);min-width:150px;"></div> <svg id="brasil-map-embed" viewBox="0 0 600 640" width="100%" style="display:block;"></svg> </div> <!-- Legenda --> <div style="padding:0 2rem 1.5rem;"> <div style="margin-top:16px;"> <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#6b7c6b;margin-bottom:6px;">Intensidade de Emissões de Metano (CH₄)</div> <div style="width:100%;height:10px;border-radius:999px;background:linear-gradient(to right,#a8f0b0,#72d688,#3aad60,#1e8045,#155c30,#0d3320);border:1px solid rgba(34,197,94,0.15);"></div> <div style="display:flex;justify-content:space-between;font-family:'DM Mono',monospace;font-size:10px;color:#6b7c6b;margin-top:4px;"><span>Menor</span><span>Moderada</span><span>Maior</span></div> </div> <div id="ranking-embed" style="margin-top:16px;display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:6px;"></div> <div style="margin-top:14px;font-family:'DM Mono',monospace;font-size:10px;color:#6b7c6b;line-height:1.7;opacity:0.7;"> Fonte: SEEG / Observatório do Clima (2023–2025). Valores em MtCO₂e.<br> Principais fontes: fermentação entérica do rebanho bovino, resíduos e uso da terra.
+      </div> </div> </div>
+</div>
+<!-- ── COMPARADOR DE REGIÕES ── -->
+<div id="comparador-section" style="position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:0 3rem 5rem;">
+  <div style="margin-bottom:1.5rem;">
+    <div class="tag" style="margin-bottom:0.8rem;">Análise Comparativa</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#f0fdf4;">Comparador de Estados</h2>
+    <p style="font-size:14px;color:#6b7c6b;margin-top:6px;">Selecione dois estados para comparar suas emissões de CH₄ lado a lado.</p>
+  </div>
+  <!-- Seletores -->
+  <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:1rem;align-items:center;margin-bottom:2rem;">
+    <!-- Estado A -->
+    <div style="background:#0d150d;border:1.5px solid rgba(34,197,94,0.2);border-radius:6px;padding:1.25rem 1.5rem;">
+      <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#22c55e;margin-bottom:0.6rem;font-weight:500;">Estado A</div>
+      <select id="cmp-estado-a" onchange="renderComparador()" style="width:100%;background:transparent;border:none;color:#f0fdf4;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:600;outline:none;cursor:pointer;appearance:none;-webkit-appearance:none;">
+        <option value="" style="background:#0d150d">Selecione...</option>
+      </select>
+      <div style="width:100%;height:1px;background:rgba(34,197,94,0.15);margin-top:0.5rem;"></div>
+    </div>
+    <!-- VS badge -->
+    <div style="display:flex;align-items:center;justify-content:center;">
+      <div style="width:48px;height:48px;border-radius:50%;background:rgba(34,197,94,0.08);border:1.5px solid rgba(34,197,94,0.2);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#22c55e;letter-spacing:0.05em;">VS</div>
+    </div>
+    <!-- Estado B -->
+    <div style="background:#0d150d;border:1.5px solid rgba(34,197,94,0.2);border-radius:6px;padding:1.25rem 1.5rem;">
+      <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#4ade80;margin-bottom:0.6rem;font-weight:500;">Estado B</div>
+      <select id="cmp-estado-b" onchange="renderComparador()" style="width:100%;background:transparent;border:none;color:#f0fdf4;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:600;outline:none;cursor:pointer;appearance:none;-webkit-appearance:none;">
+        <option value="" style="background:#0d150d">Selecione...</option>
+      </select>
+      <div style="width:100%;height:1px;background:rgba(74,222,128,0.15);margin-top:0.5rem;"></div>
+    </div>
+  </div>
+  <!-- Resultado do comparador -->
+  <div id="cmp-resultado" style="display:none;">
+    <!-- KPI row -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;" id="cmp-kpi-row"></div>
+    <!-- Barra comparativa -->
+    <div style="background:#0d150d;border:1.5px solid rgba(34,197,94,0.12);border-radius:6px;padding:1.75rem 2rem;margin-bottom:16px;">
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.15em;color:#6b7c6b;margin-bottom:1.2rem;">Emissões CH₄ — comparação direta (MtCO₂e)</div>
+      <div id="cmp-bar-a-wrap" style="margin-bottom:14px;">
+        <div style="display:flex;justify-content:space-between;margin-bottom:5px;">
+          <span id="cmp-bar-a-label" style="font-size:13px;color:#e8f5e9;font-weight:500;"></span>
+          <span id="cmp-bar-a-val" style="font-size:13px;color:#22c55e;font-weight:700;font-family:'DM Mono',monospace;"></span>
+        </div>
+        <div style="width:100%;height:10px;background:rgba(34,197,94,0.08);border-radius:999px;overflow:hidden;">
+          <div id="cmp-bar-a" style="height:100%;background:linear-gradient(90deg,#22c55e,#4ade80);border-radius:999px;transition:width 0.6s cubic-bezier(.4,0,.2,1);"></div>
+        </div>
+      </div>
+      <div id="cmp-bar-b-wrap">
+        <div style="display:flex;justify-content:space-between;margin-bottom:5px;">
+          <span id="cmp-bar-b-label" style="font-size:13px;color:#e8f5e9;font-weight:500;"></span>
+          <span id="cmp-bar-b-val" style="font-size:13px;color:#4ade80;font-weight:700;font-family:'DM Mono',monospace;"></span>
+        </div>
+        <div style="width:100%;height:10px;background:rgba(74,222,128,0.08);border-radius:999px;overflow:hidden;">
+          <div id="cmp-bar-b" style="height:100%;background:linear-gradient(90deg,#4ade80,#86efac);border-radius:999px;transition:width 0.6s cubic-bezier(.4,0,.2,1);"></div>
+        </div>
+      </div>
+    </div>
+    <!-- Gráfico histórico comparativo -->
+    <div style="background:#0d150d;border:1.5px solid rgba(34,197,94,0.12);border-radius:6px;padding:1.75rem 2rem;margin-bottom:16px;">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:1.2rem;">
+        <div>
+          <div style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#f0fdf4;margin-bottom:2px;">Evolução Histórica das Emissões</div>
+          <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.12em;color:#6b7c6b;">2010 a 2023 · MtCO₂e · dados SEEG</div>
+        </div>
+        <div style="font-size:10px;color:#6b7c6b;text-align:right;">Passe o cursor<br>para ver o delta</div>
+      </div>
+      <div style="position:relative;height:260px;width:100%;"><canvas id="cmp-chart"></canvas></div>
+    </div>
+    <!-- Métricas de crescimento e tabela ano a ano -->
+    <div style="background:#0d150d;border:1.5px solid rgba(34,197,94,0.12);border-radius:6px;padding:1.75rem 2rem;margin-bottom:16px;">
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.15em;color:#6b7c6b;margin-bottom:1.2rem;">Crescimento acumulado · variação ano a ano</div>
+      <div id="cmp-growth-metrics"></div>
+    </div>
+    <!-- Detalhes lado a lado -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div id="cmp-detail-a" style="background:#0d150d;border:1.5px solid rgba(34,197,94,0.12);border-radius:6px;padding:1.5rem;"></div>
+      <div id="cmp-detail-b" style="background:#0d150d;border:1.5px solid rgba(74,222,128,0.12);border-radius:6px;padding:1.5rem;"></div>
+    </div>
+    <!-- Insight -->
+    <div id="cmp-insight" style="margin-top:16px;background:linear-gradient(135deg,#0a1a0a,#071207);border:1px solid rgba(34,197,94,0.15);border-radius:6px;padding:1.25rem 1.75rem;display:flex;align-items:center;gap:1rem;"></div>
+  </div>
+  <!-- Placeholder quando nenhum estado selecionado -->
+  <div id="cmp-placeholder" style="text-align:center;padding:3rem 2rem;border:1.5px dashed rgba(34,197,94,0.12);border-radius:6px;">
+    <div style="font-size:2rem;margin-bottom:0.75rem;opacity:0.5;">⇄</div>
+    <div style="font-size:14px;color:#6b7c6b;">Selecione dois estados acima para ver a comparação</div>
+  </div>
+</div>
+<!-- ── DASHBOARD ── -->
+<div style="position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:0 3rem 5rem;"> <div style="margin-bottom:2rem;"> <div class="tag" style="margin-bottom:0.8rem;">Dados &amp; Análise</div> <h2 style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#f0fdf4;">Painel de Emissões</h2> </div> <!-- KPI CARDS --> <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:36px;"> <div style="background:#0d150d;border:1px solid rgba(34,197,94,0.12);border-radius:6px;padding:20px;transition:border-color .2s" onmouseenter="this.style.borderColor='rgba(34,197,94,0.35)'" onmouseleave="this.style.borderColor='rgba(34,197,94,0.12)'"> <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.12em;color:#6b7c6b;margin-bottom:8px;">️ Emissão Total CH₄ (2023)</div> <div style="font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:#22c55e;line-height:1;">667<span style="font-size:14px;color:#6b7c6b;margin-left:4px;">Mt CO₂e</span></div> <div style="font-size:12px;color:#4ade80;margin-top:8px;">▲ +2,1% vs 2022</div> </div> <div style="background:#0d150d;border:1px solid rgba(34,197,94,0.12);border-radius:6px;padding:20px;transition:border-color .2s" onmouseenter="this.style.borderColor='rgba(34,197,94,0.35)'" onmouseleave="this.style.borderColor='rgba(34,197,94,0.12)'"> <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.12em;color:#6b7c6b;margin-bottom:8px;"> Participação Agropecuária</div> <div style="font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:#22c55e;line-height:1;">73,4<span style="font-size:14px;color:#6b7c6b;margin-left:4px;">%</span></div> <div style="font-size:12px;color:#4ade80;margin-top:8px;">Maior fonte emissora</div> </div> <div style="background:#0d150d;border:1px solid rgba(34,197,94,0.12);border-radius:6px;padding:20px;transition:border-color .2s" onmouseenter="this.style.borderColor='rgba(34,197,94,0.35)'" onmouseleave="this.style.borderColor='rgba(34,197,94,0.12)'"> <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.12em;color:#6b7c6b;margin-bottom:8px;"> Potencial de Aquecimento</div> <div style="font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:#22c55e;line-height:1;">28<span style="font-size:14px;color:#6b7c6b;margin-left:4px;">× CO₂</span></div> <div style="font-size:12px;color:#4ade80;margin-top:8px;">GWP em 100 anos</div> </div> <div style="background:#0d150d;border:1px solid rgba(34,197,94,0.12);border-radius:6px;padding:20px;transition:border-color .2s;grid-column:2;" onmouseenter="this.style.borderColor='rgba(34,197,94,0.35)'" onmouseleave="this.style.borderColor='rgba(34,197,94,0.12)'"> <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.12em;color:#6b7c6b;margin-bottom:8px;"> Cabeças de Gado (2023)</div> <div style="font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:#22c55e;line-height:1;">238,6<span style="font-size:14px;color:#6b7c6b;margin-left:4px;">milhões</span></div> <div style="font-size:12px;color:#4ade80;margin-top:8px;">Maior rebanho comercial do mundo</div> </div> </div> <!-- GRÁFICOS --> <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(440px,1fr));gap:24px;margin-bottom:32px;"> <div style="background:#0d150d;border:1px solid rgba(34,197,94,0.12);border-radius:6px;padding:24px;"> <div style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:600;color:#f0fdf4;margin-bottom:4px;"> Emissões por Setor Econômico</div> <div style="font-size:12px;color:#6b7c6b;margin-bottom:20px;">Participação percentual nas emissões de metano (Brasil, 2023)</div> <canvas id="db-setoresChart" style="max-height:280px;width:100%;"></canvas> </div> <div style="background:#0d150d;border:1px solid rgba(34,197,94,0.12);border-radius:6px;padding:24px;"> <div style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:600;color:#f0fdf4;margin-bottom:4px;"> Evolução Histórica das Emissões</div> <div style="font-size:12px;color:#6b7c6b;margin-bottom:20px;">Metano (CH₄) — 2014 a 2023 (Mt CO₂e)</div> <canvas id="db-historicoChart" style="max-height:280px;width:100%;"></canvas> </div> </div> <!-- TABELA TOP 10 --> <div style="background:#0d150d;border:1px solid rgba(34,197,94,0.12);border-radius:6px;padding:24px;margin-bottom:24px;"> <div style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:600;color:#f0fdf4;margin-bottom:4px;"> Top 10 Estados Emissores de CH₄</div> <div style="font-size:12px;color:#6b7c6b;margin-bottom:20px;">Dados SEEG 2023 · Milhões de toneladas CO₂ equivalente</div> <div style="overflow-x:auto;"> <table style="width:100%;border-collapse:collapse;font-size:14px;"> <thead> <tr> <th style="text-align:left;padding:10px 8px;border-bottom:1px solid rgba(34,197,94,0.2);color:#4ade80;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;">Pos.</th> <th style="text-align:left;padding:10px 8px;border-bottom:1px solid rgba(34,197,94,0.2);color:#4ade80;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;">Estado</th> <th style="text-align:right;padding:10px 8px;border-bottom:1px solid rgba(34,197,94,0.2);color:#4ade80;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;">Emissões (Mt CO₂e)</th> <th style="text-align:left;padding:10px 8px;border-bottom:1px solid rgba(34,197,94,0.2);color:#4ade80;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;">Principal Fonte</th> </tr> </thead> <tbody id="db-tabela-estados"></tbody> </table> </div> </div>
+<!-- ── DESTAQUES DOS ESTADOS ── -->
+<div style="position:relative;z-index:1;max-width:1500px;margin:0 auto;padding:0 1.5rem;margin-bottom:24px;">
+<div id="estados-destaques" style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;">
+  <!-- Card 1: Maior Emissor -->
+  <div style="background:linear-gradient(135deg,#0d1f0d,#071207);border:1.5px solid rgba(239,68,68,0.3);border-radius:12px;padding:24px 36px;position:relative;overflow:hidden;transition:border-color .2s,transform .2s;display:flex;flex-direction:column;gap:10px;" onmouseenter="this.style.borderColor='rgba(239,68,68,0.6)';this.style.transform='translateY(-2px)'" onmouseleave="this.style.borderColor='rgba(239,68,68,0.3)';this.style.transform='translateY(0)'">
+    <div style="position:absolute;top:0;right:0;width:140px;height:140px;background:radial-gradient(circle at top right,rgba(239,68,68,0.09),transparent 70%);pointer-events:none;"></div>
+    <span style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#f87171;font-weight:600;">Maior Emissor</span>
+    <div style="font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:700;color:#f0fdf4;line-height:1.1;">Mato Grosso</div>
+    <div style="display:flex;align-items:baseline;gap:10px;">
+      <span style="font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:700;color:#f87171;line-height:1;">88,9</span>
+      <span style="font-size:14px;color:#6b7c6b;">Mt CO₂e</span>
+    </div>
+    <div style="height:5px;background:rgba(239,68,68,0.1);border-radius:999px;overflow:hidden;">
+      <div style="width:100%;height:100%;background:linear-gradient(90deg,#ef4444,#f87171);border-radius:999px;"></div>
+    </div>
+    <div style="font-size:15px;color:#9ab89a;line-height:1.7;">Lidera emissões pelo rebanho bovino. Representa <span style="color:#f87171;font-weight:600;">13,3%</span> do total nacional.</div>
+    <div style="display:inline-block;align-self:flex-start;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#f87171;border:1px solid rgba(239,68,68,0.3);padding:6px 14px;border-radius:999px;">Fermentação entérica</div>
+  </div>
+  <!-- Card 2: Mais Sustentável -->
+  <div style="background:linear-gradient(135deg,#0d1f0d,#071207);border:1.5px solid rgba(34,197,94,0.3);border-radius:12px;padding:24px 36px;position:relative;overflow:hidden;transition:border-color .2s,transform .2s;display:flex;flex-direction:column;gap:10px;" onmouseenter="this.style.borderColor='rgba(34,197,94,0.6)';this.style.transform='translateY(-2px)'" onmouseleave="this.style.borderColor='rgba(34,197,94,0.3)';this.style.transform='translateY(0)'">
+    <div style="position:absolute;top:0;right:0;width:140px;height:140px;background:radial-gradient(circle at top right,rgba(34,197,94,0.09),transparent 70%);pointer-events:none;"></div>
+    <span style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#22c55e;font-weight:600;">Mais Sustentável</span>
+    <div style="font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:700;color:#f0fdf4;line-height:1.1;">Distrito Federal</div>
+    <div style="display:flex;align-items:baseline;gap:10px;">
+      <span style="font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:700;color:#22c55e;line-height:1;">1,8</span>
+      <span style="font-size:14px;color:#6b7c6b;">Mt CO₂e</span>
+    </div>
+    <div style="height:5px;background:rgba(34,197,94,0.1);border-radius:999px;overflow:hidden;">
+      <div style="width:2%;height:100%;background:linear-gradient(90deg,#22c55e,#4ade80);border-radius:999px;"></div>
+    </div>
+    <div style="font-size:15px;color:#9ab89a;line-height:1.7;">Menor volume absoluto de emissões. Baixa atividade pecuária e área territorial reduzida.</div>
+    <div style="display:inline-block;align-self:flex-start;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#22c55e;border:1px solid rgba(34,197,94,0.3);padding:6px 14px;border-radius:999px;">Menor emissão total</div>
+  </div>
+  <!-- Card 3: Maior Crescimento -->
+  <div style="background:linear-gradient(135deg,#0d1f0d,#071207);border:1.5px solid rgba(251,191,36,0.3);border-radius:12px;padding:24px 36px;position:relative;overflow:hidden;transition:border-color .2s,transform .2s;display:flex;flex-direction:column;gap:10px;" onmouseenter="this.style.borderColor='rgba(251,191,36,0.6)';this.style.transform='translateY(-2px)'" onmouseleave="this.style.borderColor='rgba(251,191,36,0.3)';this.style.transform='translateY(0)'">
+    <div style="position:absolute;top:0;right:0;width:140px;height:140px;background:radial-gradient(circle at top right,rgba(251,191,36,0.09),transparent 70%);pointer-events:none;"></div>
+    <span style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#fbbf24;font-weight:600;">Maior Crescimento</span>
+    <div style="font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:700;color:#f0fdf4;line-height:1.1;">Rondônia</div>
+    <div style="display:flex;align-items:baseline;gap:10px;">
+      <span style="font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:700;color:#fbbf24;line-height:1;">+62,0%</span>
+      <span style="font-size:14px;color:#6b7c6b;">2010–2023</span>
+    </div>
+    <div style="height:5px;background:rgba(251,191,36,0.1);border-radius:999px;overflow:hidden;">
+      <div style="width:62%;height:100%;background:linear-gradient(90deg,#fbbf24,#fde68a);border-radius:999px;"></div>
+    </div>
+    <div style="font-size:15px;color:#9ab89a;line-height:1.7;">Emissões saltaram de <span style="color:#fbbf24;font-weight:600;">22,1 → 35,8 Mt</span>. Expansão agropecuária em área de floresta amazônica.</div>
+    <div style="display:inline-block;align-self:flex-start;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#fbbf24;border:1px solid rgba(251,191,36,0.3);padding:6px 14px;border-radius:999px;">Desmatamento crescente</div>
+  </div>
+  <!-- Card 4: Menor Crescimento -->
+  <div style="background:linear-gradient(135deg,#0d1f0d,#071207);border:1.5px solid rgba(99,102,241,0.3);border-radius:12px;padding:24px 36px;position:relative;overflow:hidden;transition:border-color .2s,transform .2s;display:flex;flex-direction:column;gap:10px;" onmouseenter="this.style.borderColor='rgba(99,102,241,0.6)';this.style.transform='translateY(-2px)'" onmouseleave="this.style.borderColor='rgba(99,102,241,0.3)';this.style.transform='translateY(0)'">
+    <div style="position:absolute;top:0;right:0;width:140px;height:140px;background:radial-gradient(circle at top right,rgba(99,102,241,0.09),transparent 70%);pointer-events:none;"></div>
+    <span style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#818cf8;font-weight:600;">Menor Crescimento</span>
+    <div style="font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:700;color:#f0fdf4;line-height:1.1;">Rio de Janeiro</div>
+    <div style="display:flex;align-items:baseline;gap:10px;">
+      <span style="font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:700;color:#818cf8;line-height:1;">+26,4%</span>
+      <span style="font-size:14px;color:#6b7c6b;">2010–2023</span>
+    </div>
+    <div style="height:5px;background:rgba(99,102,241,0.1);border-radius:999px;overflow:hidden;">
+      <div style="width:26%;height:100%;background:linear-gradient(90deg,#6366f1,#a5b4fc);border-radius:999px;"></div>
+    </div>
+    <div style="font-size:15px;color:#9ab89a;line-height:1.7;">Menor taxa de crescimento relativo: <span style="color:#818cf8;font-weight:600;">7,2 → 9,1 Mt</span>. Menor base agropecuária e maior controle urbano.</div>
+    <div style="display:inline-block;align-self:flex-start;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#818cf8;border:1px solid rgba(99,102,241,0.3);padding:6px 14px;border-radius:999px;">Crescimento mais lento</div>
+  </div>
+</div>
+</div>
+<!-- ── INDICADOR EM TEMPO REAL ── -->
+<div id="rt-indicator" style="background:#0d150d;border:1px solid rgba(34,197,94,0.18);border-radius:6px;padding:24px;margin-bottom:24px;position:relative;overflow:hidden;">
+  <!-- Pulse glow bg -->
+  <div id="rt-glow" style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(34,197,94,0.06) 0%,transparent 70%);pointer-events:none;animation:rtPulse 3s ease-in-out infinite;"></div>
+  <!-- Header -->
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:20px;position:relative;">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
+        <span id="rt-dot" style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#22c55e;box-shadow:0 0 8px #22c55e;animation:blink 1.5s ease-in-out infinite;flex-shrink:0;"></span>
+        <span style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#f0fdf4;">Estimativa em Tempo Real — Emissões de CH₄</span>
+      </div>
+      <div style="font-size:12px;color:#6b7c6b;margin-left:19px;">Projeção contínua baseada na taxa anual de 2023 (SEEG/Observatório do Clima) · Acumula desde 1º jan <span id="rt-ano">2025</span></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;">
+      <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:#22c55e;border:1px solid rgba(34,197,94,0.25);padding:3px 10px;border-radius:999px;">CH₄ · ao vivo</div>
+      <div id="rt-clock" style="font-family:'DM Mono',monospace;font-size:11px;color:#6b7c6b;"></div>
+    </div>
+  </div>
+  <!-- Main counter – Brasil -->
+  <div style="background:linear-gradient(135deg,#071209,#0a1a0a);border:1px solid rgba(34,197,94,0.15);border-radius:6px;padding:20px 24px;margin-bottom:16px;position:relative;">
+    <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#6b7c6b;margin-bottom:6px;">🇧🇷 Brasil — Acumulado no Ano (Mt CO₂e)</div>
+    <div style="display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap;">
+      <div id="rt-total-val" style="font-family:'DM Mono',monospace;font-size:clamp(2rem,5vw,3.5rem);font-weight:700;color:#22c55e;line-height:1;letter-spacing:-0.02em;"></div>
+      <div style="padding-bottom:6px;">
+        <div style="font-size:12px;color:#4ade80;font-weight:600;" id="rt-total-pct"></div>
+        <div style="font-size:11px;color:#6b7c6b;">do total anual emitido</div>
+      </div>
+    </div>
+    <!-- Progress bar -->
+    <div style="margin-top:12px;width:100%;height:6px;background:rgba(34,197,94,0.08);border-radius:999px;overflow:hidden;">
+      <div id="rt-progress" style="height:100%;background:linear-gradient(90deg,#22c55e,#4ade80);border-radius:999px;transition:width 0.8s linear;"></div>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:10px;color:#6b7c6b;margin-top:4px;font-family:'DM Mono',monospace;">
+      <span>1 jan</span><span id="rt-today-label"></span><span>31 dez</span>
+    </div>
+  </div>
+  <!-- Taxa instantânea + projeção -->
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:16px;">
+    <div style="background:#071209;border:1px solid rgba(34,197,94,0.1);border-radius:6px;padding:14px 16px;">
+      <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.15em;color:#6b7c6b;margin-bottom:6px;">Taxa por segundo</div>
+      <div id="rt-per-sec" style="font-family:'DM Mono',monospace;font-size:1.4rem;font-weight:700;color:#4ade80;"></div>
+      <div style="font-size:11px;color:#6b7c6b;margin-top:2px;">toneladas CO₂e/s</div>
+    </div>
+    <div style="background:#071209;border:1px solid rgba(34,197,94,0.1);border-radius:6px;padding:14px 16px;">
+      <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.15em;color:#6b7c6b;margin-bottom:6px;">Taxa por minuto</div>
+      <div id="rt-per-min" style="font-family:'DM Mono',monospace;font-size:1.4rem;font-weight:700;color:#4ade80;"></div>
+      <div style="font-size:11px;color:#6b7c6b;margin-top:2px;">toneladas CO₂e/min</div>
+    </div>
+    <div style="background:#071209;border:1px solid rgba(34,197,94,0.1);border-radius:6px;padding:14px 16px;">
+      <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.15em;color:#6b7c6b;margin-bottom:6px;">Taxa por hora</div>
+      <div id="rt-per-hr" style="font-family:'DM Mono',monospace;font-size:1.4rem;font-weight:700;color:#4ade80;"></div>
+      <div style="font-size:11px;color:#6b7c6b;margin-top:2px;">toneladas CO₂e/h</div>
+    </div>
+    <div style="background:#071209;border:1px solid rgba(34,197,94,0.1);border-radius:6px;padding:14px 16px;">
+      <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.15em;color:#6b7c6b;margin-bottom:6px;">Projeção anual</div>
+      <div id="rt-proj" style="font-family:'DM Mono',monospace;font-size:1.4rem;font-weight:700;color:#22c55e;"></div>
+      <div style="font-size:11px;color:#6b7c6b;margin-top:2px;">Mt CO₂e estimadas</div>
+    </div>
+  </div>
+  <!-- Emissões por Região -->
+  <div style="margin-bottom:4px;">
+    <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.15em;color:#6b7c6b;margin-bottom:12px;display:flex;align-items:center;gap:8px;">
+      <span>Emissão Acumulada por Região</span>
+      <span style="font-size:9px;color:#22c55e;border:1px solid rgba(34,197,94,0.25);padding:2px 8px;border-radius:999px;">em tempo real</span>
+    </div>
+    <div id="rt-regioes" style="display:flex;flex-direction:column;gap:10px;"></div>
+  </div>
+  <!-- Disclaimer -->
+  <div style="margin-top:16px;padding:10px 14px;background:rgba(34,197,94,0.03);border:1px solid rgba(34,197,94,0.08);border-radius:4px;">
+    <div style="font-size:10px;color:#6b7c6b;line-height:1.7;font-family:'DM Mono',monospace;">
+      ⚠ Estimativa dinâmica: a taxa é calculada a partir da emissão anual de 2023 (SEEG/Obs. do Clima) distribuída linearmente ao longo do ano. O valor acumula em tempo real desde 1° de janeiro do ano corrente. Não representa medição direta de satélite.
+    </div>
+  </div>
+</div>
+  <!-- DESTAQUE --> <div style="background:linear-gradient(135deg,#0a1a0a,#071207);border:1px solid rgba(34,197,94,0.15);border-radius:6px;padding:2rem;text-align:center;"> <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;margin-bottom:12px;color:#f0fdf4;"> Por que focar no metano?</h3> <p style="color:#6b7c6b;max-width:600px;margin:0 auto;line-height:1.7;font-size:14px;">O metano (CH₄) é responsável por cerca de 30% do aquecimento global desde a Revolução Industrial. Reduzir as emissões do setor agropecuário é a medida mais rápida e eficaz para frear as mudanças climáticas nas próximas décadas.</p> <div style="display:inline-block;background:rgba(34,197,94,0.1);padding:6px 18px;border-radius:999px;font-size:13px;color:#22c55e;margin-top:16px;">Principais fontes: fermentação entérica (bovinos) + arrozais + dejetos</div> </div>
+<!-- ── CALCULADORA DE EMISSÕES (inline) ── -->
+<div id="calc-inline" style="background:#0d150d;border:1.5px solid rgba(34,197,94,0.2);border-radius:8px;padding:2rem 2.5rem;margin-top:1.5rem;">
+  <div style="display:inline-flex;align-items:center;gap:8px;font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:#22c55e;font-weight:500;margin-bottom:0.5rem;">
+    <span style="display:block;width:20px;height:1.5px;background:#22c55e;"></span>
+    Perfil do Rebanho
+  </div>
+  <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:#f0fdf4;margin-bottom:0.3rem;">Calculadora de Emissões</h3>
+  <p style="font-size:13px;color:#6b7c6b;margin-bottom:1.5rem;line-height:1.6;">Informe o número de cabeças para estimar suas emissões anuais de CH₄.</p>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:1.25rem;">
+    <div>
+      <label style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#6b7c6b;display:block;margin-bottom:4px;">Bovinos de corte</label>
+      <input class="modal-input" type="number" id="mc-bov-corte" min="0" placeholder="0" style="margin-bottom:2px;">
+      <span style="font-size:10px;color:#4a6a4a;">~56 kg CH₄/ano</span>
+    </div>
+    <div>
+      <label style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#6b7c6b;display:block;margin-bottom:4px;">Bovinos de leite</label>
+      <input class="modal-input" type="number" id="mc-bov-leite" min="0" placeholder="0" style="margin-bottom:2px;">
+      <span style="font-size:10px;color:#4a6a4a;">~128 kg CH₄/ano</span>
+    </div>
+    <div>
+      <label style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#6b7c6b;display:block;margin-bottom:4px;">Búfalos</label>
+      <input class="modal-input" type="number" id="mc-bufalos" min="0" placeholder="0" style="margin-bottom:2px;">
+      <span style="font-size:10px;color:#4a6a4a;">~55 kg CH₄/ano</span>
+    </div>
+    <div>
+      <label style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#6b7c6b;display:block;margin-bottom:4px;">Ovinos</label>
+      <input class="modal-input" type="number" id="mc-ovinos" min="0" placeholder="0" style="margin-bottom:2px;">
+      <span style="font-size:10px;color:#4a6a4a;">~8 kg CH₄/ano</span>
+    </div>
+    <div>
+      <label style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#6b7c6b;display:block;margin-bottom:4px;">Caprinos</label>
+      <input class="modal-input" type="number" id="mc-caprinos" min="0" placeholder="0" style="margin-bottom:2px;">
+      <span style="font-size:10px;color:#4a6a4a;">~5 kg CH₄/ano</span>
+    </div>
+    <div>
+      <label style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#6b7c6b;display:block;margin-bottom:4px;">Suínos</label>
+      <input class="modal-input" type="number" id="mc-suinos" min="0" placeholder="0" style="margin-bottom:2px;">
+      <span style="font-size:10px;color:#4a6a4a;">~5 kg CH₄/ano</span>
+    </div>
+    <div>
+      <label style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#6b7c6b;display:block;margin-bottom:4px;">Equinos / muares</label>
+      <input class="modal-input" type="number" id="mc-equinos" min="0" placeholder="0" style="margin-bottom:2px;">
+      <span style="font-size:10px;color:#4a6a4a;">~18 kg CH₄/ano</span>
+    </div>
+    <div>
+      <label style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#6b7c6b;display:block;margin-bottom:4px;">Aves</label>
+      <input class="modal-input" type="number" id="mc-aves" min="0" placeholder="0" style="margin-bottom:2px;">
+      <span style="font-size:10px;color:#4a6a4a;">~0.1 kg CH₄/ano</span>
+    </div>
+  </div>
+  <button class="btn-primary" onclick="calcModal()" style="padding:0.75rem 2rem;">Calcular emissões</button>
+  <div id="mc-result" style="display:none;background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.2);border-radius:6px;padding:1.25rem 1.5rem;margin-top:1.25rem;">
+    <div style="font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:#6b7c6b;margin-bottom:0.75rem;">Estimativa anual</div>
+    <div style="display:flex;gap:2rem;flex-wrap:wrap;margin-bottom:1rem;">
+      <div>
+        <div style="font-size:11px;color:#6b7c6b;">CH₄ total</div>
+        <div style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#22c55e;line-height:1.1;" id="mc-ch4">—</div>
+        <div style="font-size:11px;color:#6b7c6b;margin-top:2px;">toneladas/ano</div>
+      </div>
+      <div>
+        <div style="font-size:11px;color:#6b7c6b;">CO₂e (GWP-100)</div>
+        <div style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#4ade80;line-height:1.1;" id="mc-co2e">—</div>
+        <div style="font-size:11px;color:#6b7c6b;margin-top:2px;">t CO₂e/ano</div>
+      </div>
+    </div>
+    <div id="mc-bars"></div>
+  </div>
+</div>
+</div>
+<!-- ══════════════════════════════════════════
+      SOLUÇÕES SUSTENTÁVEIS
+══════════════════════════════════════════ -->
+<div style="position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:0 3rem 5rem;">
+  <!-- Cabeçalho da seção -->
+  <div style="margin-bottom:2.5rem;">
+    <div style="display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:0.25em;text-transform:uppercase;color:#22c55e;font-weight:500;margin-bottom:0.8rem;">
+      <span style="display:block;width:24px;height:1.5px;background:#22c55e;"></span>
+      Boas Práticas Agropecuárias
+    </div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#f0fdf4;margin-bottom:0.5rem;">Soluções Sustentáveis</h2>
+    <p style="font-size:15px;color:#6b7c6b;line-height:1.75;max-width:620px;">Tecnologias e práticas já disponíveis que reduzem as emissões de metano no campo — com ganhos econômicos reais para o produtor.</p>
+  </div>
+  <!-- Cards principais -->
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:rgba(34,197,94,0.08);border:1.5px solid rgba(34,197,94,0.08);margin-bottom:2rem;">
+    <!-- Biodigestores -->
+    <div style="background:#050a05;padding:2rem 2rem 1.75rem;transition:background 0.2s;display:flex;flex-direction:column;gap:1rem;" onmouseenter="this.style.background='#0d150d'" onmouseleave="this.style.background='#050a05'">
+      <div style="width:44px;height:44px;border-radius:8px;background:rgba(34,197,94,0.1);border:1.5px solid rgba(34,197,94,0.25);display:none;"></div>
+      <div>
+        <div style="font-size:16px;font-weight:600;color:#e8f5e9;margin-bottom:6px;">Biodigestores</div>
+        <p style="font-size:13px;color:#6b7c6b;line-height:1.75;margin:0;">Capturam o metano gerado pelos dejetos de suínos, bovinos e aves antes que ele escape para a atmosfera. O biogás produzido abastece a propriedade com energia elétrica e o biofertilizante substitui adubos químicos.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;margin-top:auto;padding-top:0.75rem;border-top:1px solid rgba(34,197,94,0.08);">
+        <div style="display:flex;justify-content:space-between;font-size:12px;"><span style="color:#6b7c6b;">Redução de CH₄</span><span style="color:#22c55e;font-family:'DM Mono',monospace;font-weight:700;">até 90%</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:12px;"><span style="color:#6b7c6b;">Potencial BR</span><span style="color:#4ade80;font-family:'DM Mono',monospace;font-weight:700;">~55 Mt CO₂e/ano</span></div>
+      </div>
+    </div>
+    <!-- Recuperação de Pastagens -->
+    <div style="background:#050a05;padding:2rem 2rem 1.75rem;transition:background 0.2s;display:flex;flex-direction:column;gap:1rem;" onmouseenter="this.style.background='#0d150d'" onmouseleave="this.style.background='#050a05'">
+      <div style="width:44px;height:44px;border-radius:8px;background:rgba(34,197,94,0.1);border:1.5px solid rgba(34,197,94,0.25);display:none;"></div>
+      <div>
+        <div style="font-size:16px;font-weight:600;color:#e8f5e9;margin-bottom:6px;">Recuperação de Pastagens</div>
+        <p style="font-size:13px;color:#6b7c6b;line-height:1.75;margin:0;">Pastagens degradadas forçam o produtor a desmatar novas áreas e mantêm rebanhos menos eficientes, que emitem mais metano por quilo de carne. A recuperação aumenta a capacidade de suporte, reduz a área necessária e sequestra carbono no solo.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;margin-top:auto;padding-top:0.75rem;border-top:1px solid rgba(34,197,94,0.08);">
+        <div style="display:flex;justify-content:space-between;font-size:12px;"><span style="color:#6b7c6b;">Redução estimada</span><span style="color:#22c55e;font-family:'DM Mono',monospace;font-weight:700;">~180 Mt CO₂e/ano</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:12px;"><span style="color:#6b7c6b;">Área potencial</span><span style="color:#4ade80;font-family:'DM Mono',monospace;font-weight:700;">50 mi ha degradados</span></div>
+      </div>
+    </div>
+    <!-- ILPF -->
+    <div style="background:#050a05;padding:2rem 2rem 1.75rem;transition:background 0.2s;display:flex;flex-direction:column;gap:1rem;" onmouseenter="this.style.background='#0d150d'" onmouseleave="this.style.background='#050a05'">
+      <div style="width:44px;height:44px;border-radius:8px;background:rgba(34,197,94,0.1);border:1.5px solid rgba(34,197,94,0.25);display:none;"></div>
+      <div>
+        <div style="font-size:16px;font-weight:600;color:#e8f5e9;margin-bottom:6px;">Integração Lavoura-Pecuária-Floresta</div>
+        <p style="font-size:13px;color:#6b7c6b;line-height:1.75;margin:0;">O sistema ILPF combina culturas agrícolas, pastagem e árvores na mesma área. O sombreamento reduz o estresse térmico dos animais, melhora a digestão e diminui as emissões entéricas. As árvores ainda sequestram carbono e diversificam a renda.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;margin-top:auto;padding-top:0.75rem;border-top:1px solid rgba(34,197,94,0.08);">
+        <div style="display:flex;justify-content:space-between;font-size:12px;"><span style="color:#6b7c6b;">Redução de emissões</span><span style="color:#22c55e;font-family:'DM Mono',monospace;font-weight:700;">15–30% por animal</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:12px;"><span style="color:#6b7c6b;">Área adotada no BR</span><span style="color:#4ade80;font-family:'DM Mono',monospace;font-weight:700;">~17 mi ha</span></div>
+      </div>
+    </div>
+  </div>
+  <!-- Segunda linha de cards -->
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:rgba(34,197,94,0.08);border:1.5px solid rgba(34,197,94,0.08);margin-bottom:2.5rem;">
+    <!-- Aditivos alimentares -->
+    <div style="background:#050a05;padding:2rem 2rem 1.75rem;transition:background 0.2s;display:flex;flex-direction:column;gap:1rem;" onmouseenter="this.style.background='#0d150d'" onmouseleave="this.style.background='#050a05'">
+      <div style="width:44px;height:44px;border-radius:8px;background:rgba(34,197,94,0.1);border:1.5px solid rgba(34,197,94,0.25);display:none;"></div>
+      <div>
+        <div style="font-size:16px;font-weight:600;color:#e8f5e9;margin-bottom:6px;">Aditivos e Manejo Alimentar</div>
+        <p style="font-size:13px;color:#6b7c6b;line-height:1.75;margin:0;">Suplementos como 3-NOP e taninos vegetais inibem as arqueas metanogênicas no rúmen, reduzindo a produção de CH₄ na fermentação entérica. Dietas balanceadas com maior concentrado também diminuem as emissões por quilo produzido.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;margin-top:auto;padding-top:0.75rem;border-top:1px solid rgba(34,197,94,0.08);">
+        <div style="display:flex;justify-content:space-between;font-size:12px;"><span style="color:#6b7c6b;">Redução entérica</span><span style="color:#22c55e;font-family:'DM Mono',monospace;font-weight:700;">20–30% por animal</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:12px;"><span style="color:#6b7c6b;">Potencial nacional</span><span style="color:#4ade80;font-family:'DM Mono',monospace;font-weight:700;">~130 Mt CO₂e/ano</span></div>
+      </div>
+    </div>
+    <!-- AWD em arrozais -->
+    <div style="background:#050a05;padding:2rem 2rem 1.75rem;transition:background 0.2s;display:flex;flex-direction:column;gap:1rem;" onmouseenter="this.style.background='#0d150d'" onmouseleave="this.style.background='#050a05'">
+      <div style="width:44px;height:44px;border-radius:8px;background:rgba(34,197,94,0.1);border:1.5px solid rgba(34,197,94,0.25);display:none;"></div>
+      <div>
+        <div style="font-size:16px;font-weight:600;color:#e8f5e9;margin-bottom:6px;">Irrigação Intermitente (AWD)</div>
+        <p style="font-size:13px;color:#6b7c6b;line-height:1.75;margin:0;">A técnica AWD (Alternate Wetting and Drying) alterna períodos de inundação e secagem nos arrozais. Isso interrompe as condições anaeróbicas que favorecem as bactérias metanogênicas no solo, sem comprometer a produtividade da lavoura.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;margin-top:auto;padding-top:0.75rem;border-top:1px solid rgba(34,197,94,0.08);">
+        <div style="display:flex;justify-content:space-between;font-size:12px;"><span style="color:#6b7c6b;">Redução de CH₄</span><span style="color:#22c55e;font-family:'DM Mono',monospace;font-weight:700;">30–50% por ciclo</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:12px;"><span style="color:#6b7c6b;">Potencial nacional</span><span style="color:#4ade80;font-family:'DM Mono',monospace;font-weight:700;">~22 Mt CO₂e/ano</span></div>
+      </div>
+    </div>
+    <!-- Mercado de carbono -->
+    <div style="background:#050a05;padding:2rem 2rem 1.75rem;transition:background 0.2s;display:flex;flex-direction:column;gap:1rem;" onmouseenter="this.style.background='#0d150d'" onmouseleave="this.style.background='#050a05'">
+      <div style="width:44px;height:44px;border-radius:8px;background:rgba(34,197,94,0.1);border:1.5px solid rgba(34,197,94,0.25);display:none;"></div>
+      <div>
+        <div style="font-size:16px;font-weight:600;color:#e8f5e9;margin-bottom:6px;">Mercado de Carbono (SBCE)</div>
+        <p style="font-size:13px;color:#6b7c6b;line-height:1.75;margin:0;">O Sistema Brasileiro de Comércio de Emissões cria incentivos econômicos diretos para produtores que adotem práticas de baixo carbono. Créditos de metano têm alto valor por conta do GWP elevado, tornando a mitigação financeiramente atrativa.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;margin-top:auto;padding-top:0.75rem;border-top:1px solid rgba(34,197,94,0.08);">
+        <div style="display:flex;justify-content:space-between;font-size:12px;"><span style="color:#6b7c6b;">1 t CH₄ evitada vale</span><span style="color:#22c55e;font-family:'DM Mono',monospace;font-weight:700;">28 créditos CO₂</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:12px;"><span style="color:#6b7c6b;">Previsão de início</span><span style="color:#4ade80;font-family:'DM Mono',monospace;font-weight:700;">2025–2026</span></div>
+      </div>
+    </div>
+  </div>
+  <!-- Barra de potencial total -->
+  <div style="background:#0d150d;border:1.5px solid rgba(34,197,94,0.12);border-radius:6px;padding:1.75rem 2rem;">
+    <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.18em;color:#6b7c6b;margin-bottom:1.2rem;">Potencial combinado de redução até 2030 · Brasil (Mt CO₂e/ano)</div>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span style="font-size:13px;color:#e8f5e9;">Recuperação de pastagens (ABC+)</span><span style="font-size:13px;color:#22c55e;font-family:'DM Mono',monospace;font-weight:700;">~180 Mt</span></div>
+        <div style="height:7px;background:rgba(34,197,94,0.07);border-radius:999px;overflow:hidden;"><div style="width:100%;height:100%;background:linear-gradient(90deg,#22c55e,#4ade80);border-radius:999px;"></div></div>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span style="font-size:13px;color:#e8f5e9;">Aditivos e manejo alimentar</span><span style="font-size:13px;color:#4ade80;font-family:'DM Mono',monospace;font-weight:700;">~130 Mt</span></div>
+        <div style="height:7px;background:rgba(34,197,94,0.07);border-radius:999px;overflow:hidden;"><div style="width:72%;height:100%;background:linear-gradient(90deg,#4ade80,#86efac);border-radius:999px;"></div></div>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span style="font-size:13px;color:#e8f5e9;">Biodigestores (dejetos animais)</span><span style="font-size:13px;color:#86efac;font-family:'DM Mono',monospace;font-weight:700;">~55 Mt</span></div>
+        <div style="height:7px;background:rgba(34,197,94,0.07);border-radius:999px;overflow:hidden;"><div style="width:30%;height:100%;background:linear-gradient(90deg,#86efac,#d9f99d);border-radius:999px;"></div></div>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span style="font-size:13px;color:#e8f5e9;">ILPF — sequestro e eficiência</span><span style="font-size:13px;color:#d9f99d;font-family:'DM Mono',monospace;font-weight:700;">~40 Mt</span></div>
+        <div style="height:7px;background:rgba(34,197,94,0.07);border-radius:999px;overflow:hidden;"><div style="width:22%;height:100%;background:linear-gradient(90deg,#d9f99d,#fef9c3);border-radius:999px;"></div></div>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span style="font-size:13px;color:#e8f5e9;">Irrigação intermitente AWD</span><span style="font-size:13px;color:#fef9c3;font-family:'DM Mono',monospace;font-weight:700;">~22 Mt</span></div>
+        <div style="height:7px;background:rgba(34,197,94,0.07);border-radius:999px;overflow:hidden;"><div style="width:12%;height:100%;background:linear-gradient(90deg,#fef9c3,#fbbf24);border-radius:999px;"></div></div>
+      </div>
+    </div>
+    <div style="margin-top:1.25rem;padding-top:1rem;border-top:1px solid rgba(34,197,94,0.08);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+      <div style="font-size:11px;color:#4a6a4a;font-family:'DM Mono',monospace;line-height:1.6;">Fonte: SEEG · IPCC AR6 · Plano ABC+ MDA 2023 · estimativas com adoção plena até 2030.</div>
+      <div style="text-align:right;">
+        <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.12em;color:#6b7c6b;margin-bottom:2px;">Total estimado</div>
+        <div style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:#22c55e;">~427 Mt CO₂e/ano</div>
+      </div>
+    </div>
+    <!-- Explicação do 427 Mt -->
+    <div style="margin-top:1rem;background:linear-gradient(135deg,rgba(34,197,94,0.07),rgba(34,197,94,0.03));border:1px solid rgba(34,197,94,0.2);border-left:3px solid #22c55e;border-radius:0 6px 6px 0;padding:1rem 1.25rem;">
+      <div style="font-size:12px;font-weight:700;color:#4ade80;margin-bottom:6px;">💡 O que significa ~427 Mt CO₂e/ano?</div>
+      <p style="font-size:13px;color:#9ab89a;line-height:1.75;margin:0 0 8px;">Este número é a <strong style="color:#e8f5e9;">soma do potencial de redução de todas as estratégias acima</strong>, caso fossem implementadas plenamente até 2030. Ou seja: se o Brasil adotasse manejo de pastagens + aditivos bovinos + biodigestores + ILPF + AWD em arrozais ao mesmo tempo, poderia evitar a emissão de aproximadamente 427 milhões de toneladas de CO₂ equivalente por ano.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;font-size:12px;">
+        <span style="color:#6b7c6b;">Para ter noção da escala:</span>
+        <span style="color:#e8f5e9;">🚗 Equivale a retirar <strong style="color:#4ade80;">~375 milhões de carros</strong> das ruas por um ano</span>
+        <span style="color:#e8f5e9;">🇧🇷 Representa <strong style="color:#4ade80;">64%</strong> de todas as emissões de GEE do Brasil em 2023</span>
+      </div>
+    </div>
+  </div>
+</div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+    <div class="modal-overlay" id="modalOverlay" onclick="handleOverlayClick(event)"> <div class="modal" id="modal" style="max-width:420px"> <!-- STEP 1: Cadastro --> <div id="step-signup"> <button class="modal-close" onclick="closeModal()"></button> <div class="modal-tag">Acesso à plataforma</div> <h2>Login</h2> <p class="modal-sub">Entre na sua conta para acessar dados, relatórios e monitorar emissões de metano.</p> <button class="btn-google" onclick="loginGoogle()"> <svg style="width:18px;height:18px;flex-shrink:0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/> <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/> <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/> <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/> </svg> Continuar com Google
+      </button> <div class="divider"><span>ou</span></div> <input class="modal-input" id="login-email" type="email" placeholder="E-mail" /> <span class="field-error-msg" id="err-login-email">Informe um e-mail válido.</span> <input class="modal-input" id="login-senha" type="password" placeholder="Senha" /> <span class="field-error-msg" id="err-login-senha">A senha deve ter pelo menos 6 caracteres.</span> <button class="btn-submit" onclick="submitLogin()">Entrar</button> </div> </div> </div>
+</div> <!-- ── CHART PANEL ── -->
+<div id="chart-panel-overlay" onclick="handleChartOverlayClick(event)"> <div id="chart-panel"> <button id="chart-close" onclick="closeChartPanel()"></button> <div id="chart-state-tag">Evolução Histórica · CH₄</div> <div id="chart-state-title">Estado</div> <div id="chart-state-sub">Emissões de metano agropecuário (MtCO₂e) — 2010 a 2023</div> <div id="chart-canvas-wrap"> <svg id="chart-svg" viewBox="0 0 680 260" preserveAspectRatio="xMidYMid meet"></svg> </div> <div id="chart-footer"> <span><span class="chart-legend-dot"></span>CH₄ equivalente (MtCO₂e) por ano</span> <span>Fonte: SEEG / Observatório do Clima</span> </div> </div>
+</div> <footer> <p>© 2026 AgroMetano — Plataforma de monitoramento climático</p> <a href="#">Política de privacidade</a>
+</footer> 
+<!-- MODAL CADASTRO -->
+<div class="modal-overlay" id="signupModalOverlay" onclick="if(event.target===this)closeSignupModal()">
+  <div class="modal" id="signupModal" style="max-width:420px">
+    <!-- STEP 1: Dados da conta -->
+    <div id="signup-step-1">
+      <button class="modal-close" onclick="closeSignupModal()">✕</button>
+      <div class="modal-tag">Acesso à plataforma</div>
+      <h2>Criar conta gratuita</h2>
+      <p class="modal-sub">Crie sua conta e acesse dados, relatórios e monitore emissões de metano no agronegócio.</p>
+      <button class="btn-google" onclick="signupGoogle()">
+        <svg style="width:18px;height:18px;flex-shrink:0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+        </svg> Continuar com Google
+      </button>
+      <div class="divider"><span>ou</span></div>
+      <input class="modal-input" id="signup-nome" type="text" placeholder="Nome completo" />
+      <span class="field-error-msg" id="err-signup-nome">Por favor, informe seu nome completo.</span>
+      <input class="modal-input" id="signup-email" type="email" placeholder="E-mail" />
+      <span class="field-error-msg" id="err-signup-email">Informe um e-mail válido.</span>
+      <input class="modal-input" id="signup-senha" type="password" placeholder="Senha" />
+      <span class="field-error-msg" id="err-signup-senha">A senha deve ter pelo menos 6 caracteres.</span>
+      <button class="btn-submit" onclick="submitSignup()">Criar conta</button>
+    </div>
+    <!-- STEP 2: Apenas Agricultor -->
+    <div id="signup-step-2" style="display:none">
+      <button class="modal-close" onclick="closeSignupModal()">✕</button>
+      <!-- Indicador de progresso -->
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:1.5rem;">
+        <div style="width:20px;height:20px;border-radius:50%;background:rgba(34,197,94,0.2);border:1.5px solid rgba(34,197,94,0.4);display:flex;align-items:center;justify-content:center;">
+          <svg width="10" height="10" viewBox="0 0 10 10"><path d="M2 5l2.5 2.5L8 3" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        </div>
+        <div style="flex:1;height:1px;background:rgba(34,197,94,0.25);"></div>
+        <div style="width:20px;height:20px;border-radius:50%;background:#22c55e;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#050a05;">2</div>
+      </div>
+      <div class="modal-tag">Perfil do produtor</div>
+      <h2 style="margin-bottom:0.3rem;">Apenas Agricultor</h2>
+      <p class="modal-sub">Conte um pouco sobre a sua propriedade para personalizarmos sua experiência.</p>
+      <!-- Estado -->
+      <label style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:5px;">De qual estado você se encontra?</label>
+      <select class="modal-input" id="signup-estado" style="cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b7c6b' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E\");background-repeat:no-repeat;background-position:right 12px center;">
+        <option value="style=background:#0d150d;">Selecione seu estado...</option>
+        <option style="background:#0d150d;">Acre</option>
+        <option style="background:#0d150d;">Alagoas</option>
+        <option style="background:#0d150d;">Amapá</option>
+        <option style="background:#0d150d;">Amazonas</option>
+        <option style="background:#0d150d;">Bahia</option>
+        <option style="background:#0d150d;">Ceará</option>
+        <option style="background:#0d150d;">Distrito Federal</option>
+        <option style="background:#0d150d;">Espírito Santo</option>
+        <option style="background:#0d150d;">Goiás</option>
+        <option style="background:#0d150d;">Maranhão</option>
+        <option style="background:#0d150d;">Mato Grosso</option>
+        <option style="background:#0d150d;">Mato Grosso do Sul</option>
+        <option style="background:#0d150d;">Minas Gerais</option>
+        <option style="background:#0d150d;">Pará</option>
+        <option style="background:#0d150d;">Paraíba</option>
+        <option style="background:#0d150d;">Paraná</option>
+        <option style="background:#0d150d;">Pernambuco</option>
+        <option style="background:#0d150d;">Piauí</option>
+        <option style="background:#0d150d;">Rio de Janeiro</option>
+        <option style="background:#0d150d;">Rio Grande do Norte</option>
+        <option style="background:#0d150d;">Rio Grande do Sul</option>
+        <option style="background:#0d150d;">Rondônia</option>
+        <option style="background:#0d150d;">Roraima</option>
+        <option style="background:#0d150d;">Santa Catarina</option>
+        <option style="background:#0d150d;">São Paulo</option>
+        <option style="background:#0d150d;">Sergipe</option>
+        <option style="background:#0d150d;">Tocantins</option>
+      </select>
+      <span class="field-error-msg" id="err-signup-estado">Selecione seu estado.</span>
+      <!-- Hectares -->
+      <label style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:5px;margin-top:0.75rem;">Quantos hectares de terra você possui?</label>
+      <input class="modal-input" id="signup-hectares" type="number" min="0" placeholder="Ex: 150" />
+      <span class="field-error-msg" id="err-signup-hectares">Informe a área em hectares.</span>
+      <button class="btn-submit" style="margin-top:0.5rem;" onclick="submitSignupStep2()">Concluir cadastro</button>
+      <button onclick="closeSignupModal()" style="width:100%;margin-top:10px;background:transparent;border:none;color:var(--muted);font-family:'DM Sans',sans-serif;font-size:13px;cursor:pointer;padding:8px;transition:color 0.2s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='var(--muted)'">Pular por agora →</button>
+    </div>
+  </div>
+</div>
+  <script src="script.js"></script>
+</body>
+</html>
