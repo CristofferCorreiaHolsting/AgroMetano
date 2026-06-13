@@ -103,8 +103,7 @@ Cards com 6 boas práticas agropecuárias e seus impactos quantificados:
 | Manejo de Arroz | Técnicas de drenagem intermitente para arrozais |
 
 
-```bash
-### Sistema de Autenticação
+### Sistema de Autenticação (AINDA NÃO DISPONÍVEL!)
 - Cadastro em 2 etapas:
   1. Nome, e-mail e senha (validação em tempo real com animação de shake)
   2. Perfil do produtor: estado e tamanho da propriedade (em hectares)
@@ -112,8 +111,6 @@ Cards com 6 boas práticas agropecuárias e seus impactos quantificados:
 - **Login social via Google (Google Identity Services)**
 - Toast de boas-vindas animado após autenticação
 - Alternância fluida entre modais de login e cadastro
-```
-(ainda não disponível)
 
 ---
 
@@ -185,6 +182,4 @@ O AgroMetano foi desenvolvido com foco em **educação climática** e **transpar
 ---
 
 ## Licença
-Este projeto é de uso educativo. Os dados apresentados são baseados em fontes públicas (SEEG/Observatório do Clima e IPCC).
-
 Este projeto é de uso educativo. Os dados apresentados são baseados em fontes públicas (SEEG/Observatório do Clima e IPCC).
