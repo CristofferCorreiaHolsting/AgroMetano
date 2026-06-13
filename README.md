@@ -102,6 +102,8 @@ Cards com 6 boas práticas agropecuárias e seus impactos quantificados:
 | Crédito de Carbono | Monetização das reduções via mercado voluntário |
 | Manejo de Arroz | Técnicas de drenagem intermitente para arrozais |
 
+
+```bash
 ### Sistema de Autenticação
 - Cadastro em 2 etapas:
   1. Nome, e-mail e senha (validação em tempo real com animação de shake)
@@ -110,6 +112,8 @@ Cards com 6 boas práticas agropecuárias e seus impactos quantificados:
 - **Login social via Google (Google Identity Services)**
 - Toast de boas-vindas animado após autenticação
 - Alternância fluida entre modais de login e cadastro
+```
+(ainda não disponível)
 
 ---
 
@@ -160,7 +164,7 @@ AgroMetano.html
 Por ser um arquivo HTML único e autocontido, basta abrir no navegador:
 
 
-# Opção 1: CLique no link
+# Opção 1: Clique no link
 Clique duas vezes em [AgroMetano.html](https://agro-metano-tgwu.vercel.app/)
 
 
