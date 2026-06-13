@@ -159,12 +159,11 @@ AgroMetano.html
 
 Por ser um arquivo HTML único e autocontido, basta abrir no navegador:
 
-```bash
-# Opção 1: Abrir diretamente
+
+# Opção 1: CLique no link
 Clique duas vezes em [AgroMetano.html](https://agro-metano-tgwu.vercel.app/)
 
 
-```
 
 > **Nota:** A funcionalidade de login com Google requer conexão à internet e o domínio configurado no Google Cloud Console como origem autorizada.
 
