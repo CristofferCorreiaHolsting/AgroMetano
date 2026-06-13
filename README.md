@@ -161,10 +161,8 @@ Por ser um arquivo HTML único e autocontido, basta abrir no navegador:
 
 ```bash
 # Opção 1: Abrir diretamente
-Clique duas vezes em AgroMetano.html
-# Opção 2: baixar
-baixe o arquivo clicando na setinha direcionada para baixo,
-quando passar o cursor por cima aparecerá, Download raw file.
+Clique duas vezes em [AgroMetano.html](https://agro-metano-tgwu.vercel.app/)
+
 
 ```
 
