@@ -12,7 +12,7 @@
 
 O **AgroMetano** é uma plataforma educativa e de dados interativos focada nos efeitos das emissões de metano (CH₄) no campo brasileiro. O site apresenta dados do SEEG 2023 de forma visual, permitindo que produtores rurais, pesquisadores e cidadãos entendam o impacto climático do agronegócio e explorem soluções de mitigação.
 
-> O Brasil é o **4º maior emissor de metano do mundo**, com mais de **73% das emissões** provenientes do agronegócio.
+> O Brasil é o **5º maior emissor de metano do mundo**, com mais de **73% das emissões** provenientes do agronegócio.
 
 ---
 
